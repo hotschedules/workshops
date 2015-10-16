@@ -111,7 +111,8 @@ https://api.bodhi.space/reveal/resources/SalesTransaction?where={‘business_day
 > We will use the sys_id returned from our previous query
 
 ````
-https://api.bodhi.space/reveal/resources/SalesTransaction?where={‘business_day’:’2015-01-24’, ‘store_id’:’55a3fd3ddffa2e42a835e2ef’}
+https://api.bodhi.space/reveal/resources/SalesTransaction?where={‘business_day’:’2015-01-24’, 
+‘store_id’:’55a3fd3ddffa2e42a835e2ef’}
 ````
 
 [Click to run]( https://api.bodhi.space/reveal/resources/SalesTransaction?where=%7B%27business_day%27:%272015-01-24%27,%27store_id%27:%2755a3fd3ddffa2e42a835e2ef%27%7D ) (Change the namespace, store name and date to match your data.)
@@ -132,7 +133,8 @@ http://api.bodhi.space/reveal/resources/SalesTransaction?fields=net_total.value
 **Fetch sales transactions for a specific store but return the 'Net Total' property only**
 
 ````
-http://api.bodhi.space/reveal/resources/SalesTransaction?where={‘business_day’:’2015-01-24’, ‘store_id’:’55a3fd3ddffa2e42a835e2ef’}&fields=net_total.value
+http://api.bodhi.space/reveal/resources/SalesTransaction?where={‘business_day’:’2015-01-24’, 
+‘store_id’:’55a3fd3ddffa2e42a835e2ef’}&fields=net_total.value
 ````
 
 
@@ -158,7 +160,8 @@ https://api.bodhi.space/reveal/resources/SalesTransaction/count
 **Count all sales transactions for a specific store**
 
 ````
-http://api.bodhi.space/reveal/resources/SalesTransaction/count?where={‘store_id’:’55a3fd3ddffa2e42a835e2ef’}
+http://api.bodhi.space/reveal/resources/SalesTransaction/count?
+where={‘store_id’:’55a3fd3ddffa2e42a835e2ef’}
 ````
 
 [Click to run]( https://api.bodhi.space/reveal/resources/SalesTransaction/count?where=%7B%27store_id%27:%2755a3fd3ddffa2e42a835e2ef%27%7D ) (Change the namespace, store name and date to match your data.)
@@ -168,7 +171,8 @@ http://api.bodhi.space/reveal/resources/SalesTransaction/count?where={‘store_i
 **Count all sales transactions for a specific store on the 24th January 2015.**
 
 ````
-http://api.bodhi.space/reveal/resources/SalesTransaction/count?where={‘business_day’:’2015-01-24’, ‘store_id’:’55a3fd3ddffa2e42a835e2ef’}
+http://api.bodhi.space/reveal/resources/SalesTransaction/count?
+where={‘business_day’:’2015-01-24’, ‘store_id’:’55a3fd3ddffa2e42a835e2ef’}
 ````
 
 [Click to run]( https://api.bodhi.space/reveal/resources/SalesTransaction/count?where=%7B%27business_day%27:%272015-01-24%27,%27store_id%27:%2755a3fd3ddffa2e42a835e2ef%27%7D ) (Change the namespace, store name and date to match your data.)
@@ -310,7 +314,8 @@ NOTE: All API request submitted should be posted as one line, not broken out wit
 **Get all SalesTransactions after a certain date**
 
 ````
-https://api.bodhi.space/reveal/resources/SalesTransaction?where={'sys_created_at':{$gte:{'$date':'2015-07-25T00:00:00.000Z'}}}
+https://api.bodhi.space/reveal/resources/SalesTransaction?
+where={'sys_created_at':{$gte:{'$date':'2015-07-25T00:00:00.000Z'}}}
 ````
 
 [Click to run](https://api.bodhi.space/reveal/resources/SalesTransaction?where={%27sys_created_at%27:{$gte:{%27$date%27:%272015-07-25T00:00:00.000Z%27}}}) ( Change the namespace and date to match your data.)
@@ -321,7 +326,8 @@ https://api.bodhi.space/reveal/resources/SalesTransaction?where={'sys_created_at
 **Get all AlohaTimeCard entries where overtime pay is greater than or equal to one dollar and display only the overtime pay and the date**
 
 ````
-https://api.bodhi.space/reveal/resources/AlohaTimeCard?where={"OVERPAY":{$gte: 1}}&fields=OVERPAY,DATE
+https://api.bodhi.space/reveal/resources/AlohaTimeCard?
+where={"OVERPAY":{$gte: 1}}&fields=OVERPAY,DATE
 ````
 
 [Click to run](https://api.bodhi.space/reveal/resources/AlohaTimeCard?where={%27OVERPAY%27:{$gte: 1}}&fields=OVERPAY,DATE )  (Change the namespace, type name and fields to match your data. (Check you are using Aloha as the types might exist in your environment...))
@@ -459,7 +465,8 @@ $out | Writes the resulting documents of the aggregation pipeline to a collectio
 **Get the total sales by store to date**
 
 ````
-https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$group:{_id:'$store_id',totalSales:{$sum:'$tender_total.value'}}}}]
+https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?
+pipeline=[{$group:{_id:'$store_id',totalSales:{$sum:'$tender_total.value'}}}}]
 ````
 
 [Click to run](https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$group:{_id:'$store_id',totalSales:{$sum:'$tender_total.value'}}}])  (Change the namespace to match your account)
@@ -468,7 +475,8 @@ https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$
 **Get the number of Sales Transactions per store to date**
 
 ````
-https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$group:{_id:'$store_id',countOfSales: {$sum: 1}}}]
+https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?
+pipeline=[{$group:{_id:'$store_id',countOfSales: {$sum: 1}}}]
 ````
 
 [Click to run](https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$group:{_id:'$store_id',countOfSales:{$sum:1}}}])  (Change the namespace to match your account)
@@ -477,7 +485,8 @@ https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$
 **Get the number of Sales Items sold per store to date**
 
 ````
-https://api.bodhi.space/reveal/resources/SalesItem/aggregate?pipeline=[{$group:{_id:'$store_id',countOfSales: {$sum: 1}  }}]
+https://api.bodhi.space/reveal/resources/SalesItem/aggregate?
+pipeline=[{$group:{_id:'$store_id',countOfSales: {$sum: 1}  }}]
 ````
 
 [Click to run](https://api.bodhi.space/reveal/resources/SalesItem/aggregate?pipeline=[{$group:{_id:'$store_id',countOfSales:{$sum:1}}}])  (Change the namespace to match your account)
@@ -486,7 +495,8 @@ https://api.bodhi.space/reveal/resources/SalesItem/aggregate?pipeline=[{$group:{
 **Get the number of Sales Items sold per day for all stores combined**
 
 ````
-https://api.bodhi.space/reveal/resources/SalesItem/aggregate?pipeline=[{$group:{_id:'$business_day',countOfSales:{$sum: 1}}}]
+https://api.bodhi.space/reveal/resources/SalesItem/aggregate?
+pipeline=[{$group:{_id:'$business_day',countOfSales:{$sum: 1}}}]
 ````
 
 [Click to run](https://api.bodhi.space/reveal/resources/SalesItem/aggregate?pipeline=[{$group:{_id:'$business_day',countOfSales:{$sum:1}}}])  (Change the namespace to match your account)
@@ -494,7 +504,8 @@ https://api.bodhi.space/reveal/resources/SalesItem/aggregate?pipeline=[{$group:{
 **Get sales totals and sales counts for each business day**
 
 ````
-https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$group:{_id:'$business_day', totalSales:{$sum:'$tender_total.value'}, countOfSales: {$sum: 1} }}]
+https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?
+pipeline=[{$group:{_id:'$business_day', totalSales:{$sum:'$tender_total.value'}, countOfSales: {$sum: 1} }}]
 ````
 
 [Click to run](https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$group:{_id:'$business_day',totalSales:{$sum:'$tender_total.value'},countOfSales:{$sum:1}}}])  (Change the namespace to match your account)
@@ -504,7 +515,8 @@ https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=[{$
 **Get sales totals and sales counts for each business day and determine the average sales per day**
 
 ````
-https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?pipeline=
+https://api.bodhi.space/reveal/resources/SalesTransaction/aggregate?
+pipeline=
 	[{$group:{_id:'$business_day', 
 				totalSales:{$sum:'$tender_total.value'},
 				countOfSales: {$sum: 1}}},
