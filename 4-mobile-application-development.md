@@ -38,7 +38,7 @@ A Bodhi mobile app is a web application and consists of the following assets
 * a LICENSE file
 * any web assets, such as CSS and JS files, can be stored in sub directories
 * Bodhi JS file (rbc.js) to access device features
-* A package.json file (see http://docs.bodhi.space/#package.json)
+* A package.json file (see <http://docs.bodhi.space/#package.json>)
 
 
 
@@ -50,7 +50,37 @@ To create a web application we are going to use **app-tools**.
 **app-tools** is a command line tool, bundled with **bodhi-cli**, that allows app developers to quickly generate an app and publish it to the cloud so that it can be viewed and executed in the container.
 
 Open your command prompt (select to run as Administrator on Windows)
-Navigate to the bodhi project folder you created in Workshop 3. If you did not create a Bodhi project - then follow the instructions to set up a Bodhi project folder using **bodhi init** and set up your **rbc_project.json** file with the environment variables to access your namespace with your credentials.
+Navigate to the bodhi project folder you created in Workshop 3. If you did not create a Bodhi project or have not installed the Bodhi CLI - then follow the instructions located here: <http://docs.bodhi.space/#bodhi-command-line-interface>
+
+Follow the instructions to set up a Bodhi project folder using **bodhi init** and set up your **rbc_project.json** file with the environment variables to access your namespace with your credentials. You should read the docs but the steps are as follows:
+
+
+````
+npm install -g bodhi-cli
+mkdir bodhiapps
+cd bodhiapps
+bodhi init  /path/to/new/project/root
+bodhi new my_environment_name
+bodhi set-default my_environment_name
+
+````
+
+This will create a working folder on your machine and set the CLI to default to your namespace. 
+
+**Example**
+
+Assume our namespace is called 'baybridge' and we want to set up the CLI to use that namespace without having to specify those details every time we wish to converse with the cloud.
+
+````
+npm install -g bodhi-cli
+mkdir bodhiapps
+cd bodhiapps
+bodhi init  bodhiapps
+bodhi new baybridge -s api.bodhi.space -n baybridge -u susanjones -p ABCDE
+bodhi set-default baybridge
+
+````
+
 
 From the root of your bodhi project folder you should see the following:
 
