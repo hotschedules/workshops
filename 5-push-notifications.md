@@ -83,7 +83,7 @@ In this example we will send a notification to all Android users using CURL.
 }
 ````
 
-Using CURL send a PUSH request sending the message file. 
+2. Using CURL send a PUSH request sending the message file. 
 In this example our namespace is called 'tiffles'.
  
 
