@@ -1,4 +1,4 @@
-# Bodhi Workshop #6
+# Bodhi Workshop #6 (draft)
 
 ## Agent applications
 

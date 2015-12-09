@@ -1,4 +1,4 @@
-# Bodhi Workshop #7
+# Bodhi Workshop #7 (draft)
 
 ## Reveal KPI's
 
@@ -14,7 +14,7 @@ There are two tasks involved in creating Reveal content:
 
 ## Use Case
 
-You will create a simple KPI and deploy it to Reveal.
+You will create a simple KPI and add it to Reveal.
 
 
 ##Prerequisites

@@ -2,76 +2,95 @@
 
 ## Push Notifications
 
-In this workshop we will look at the process of mobile application development. 
-
- 
-
-There are two tasks involved in creating mobile applications:
-
-* creating web applications that run in the Bodhi mobile container
-* branding the Bodhi mobile container
-
-
-
-## Demo Use Case
-
-You will create a web application and deploy it to Bodhi Mobile.
+In this workshop we will look at setting up Push Notifications. 
 
 
 ##Prerequisites
 
-**To run the app you need** 
+**To receive Push Notifications you need** 
 
 * Bodhi Mobile installed on your ios or android device
-* accepted Push Notifications for your device
+* Accepted Push Notifications for your device
+
+You need a version of the Bodhi Mobile native application(s) which supports registration as a push notification client.  
+
+When you log into the mobile client, the client will pop up an alert and ask you if you want to accept push notifications. If the user accepts, the mobile client will create a registration token and store this using the BodhiDevice type. 
+
+The device challenge and authorisation is a common practice and adheres to Apple and Google's guidelines for user authorised push notifications.
 
 
-## Create the simple type
+## Check the device is registered 
 
-A Bodhi mobile app is a web application and consists of the following assets 
+Before starting to build your push notification application, validate the target device is registered for notifications.
 
-
-
-
-
-## Create a node.js project 
-
-
-
-
+To validate the device is registered, query the BodhiDevice type
 
 ````
-npm init
-
+curl https://<server addr>/<namespace>/resources/BodhiDevice 
 ````
 
-This will create a working folder on your machine and set the CLI to default to your namespace. 
 
 
+## Sending a Push notification
+
+Once one or more devices have been registered you can send notifications via the API Server’s “notifications” endpoint.  
+
+The URI for this is:
+
+````
+	https://<server addr>/<namespace>/notifications
+````
+
+The notification expects a POST request where the body is a JSON document of the following form:
+
+````
+	{
+	 “to”: {
+		 [“type”: “BodhiUser | “BodhiDevice”]?,
+		  “where”: <query document>
+         },
+	 “payload”: <payload document>
+	}
+````
+
+You can send a notification to a specific target type:
+
+* a user
+* a device type
+
+The “type” property of the “to” document determines the target type for the query supplied by the “where” property.  
+The “type” is optional and may contain either BodhiUser or BodhiDevice. BodhiDevice is the default if this property is missing. 
 
 
-To display all the apps currently deployed in the cloud for your specified environment enter:
+The “payload” document can contain any legal JSON document.  However, if you want to display a text alert on the target device then the payload must include the “message” property in the JSON of the payload document
 
-```
-app-tools list-apps [-e -n -u -p]
-```
+````
+{
+ "payload": {"message":"this is my real message"}
+}
+````
 
-A list of apps currently in the cloud will be displayed. Each app entry will show its meta data. The list may be blank at the moment.
+## Example using CURL
 
+In this example we will send a notification to all Android users using CURL. 
 
-We will use more of the app-tools features during the next exercise.
+1. Create a text file and paste the following contents. In this example the text file is called 'message.json' - but you can call it anything you want. 
 
+````
+{
+ "to": {"type": "BodhiDevice", "where": {"os_type": "Android"}},
+ "payload": {"message":"Please join us for cocktails and canapes at 4"}
+}
+````
 
-## Create a mobile app using bodhi-cli
+Using CURL send a PUSH request sending the message file. 
+In this example our namespace is called 'tiffles'.
+ 
 
-
-We are going to use app-tools to created these assets for us. It should be noted that you can use any web assets. As long as key files are present and the correct package.json file exists you will be able to deploy applications to Bodhi Cloud.
-
-
-
-
-
-
+````
+curl -X POST - H "Content-Type: application/json" 
+https://api.bodhi.space/tiffles/notifications -d message.json
+````
 
 
 
