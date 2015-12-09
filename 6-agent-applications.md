@@ -14,32 +14,32 @@ An agent app is an event driven application. Unlike other applications which are
 ## What will the agent app in this document do?
 The agent app in this document will contain only two main objectives : 
 
-* ###A basic event handler
+* ### A basic event handler
 An event handler is essentially a piece of code that gets executed when a given event takes place.
 
-* ###A way to fire off the event handler
+* ### A way to fire off the event handler
 This will be done by writing a line of code which will be the “event” we are looking for.
 
 # Preparation 
 This section will discuss the early stages of getting an agent app up and running. 
-##Agent health check
+## Agent health check
 Assuming you have an agent set-up and running already, and have checked the health of it by running : 
 
 ```agent-cli status```
 
 The output you are expecting to see here is a line that says _“agent available”_.
 
-##Clone the agent app template
+## Clone the agent app template
 This section will discuss the steps needed to actually get a copy of the basic agent app template. The basic template app is hosted as a public repository for all developers to get a copy of, and begin altering to see results with very little prior coding knowledge.
 
-###Install SourceTree
+### Install SourceTree
 SourceTree is a source control client which is compatible with git and mercurial type repositories. You can download it at the link below : 
 
 ```https://www.sourcetreeapp.com/```
 
 Setup is fairly straightforward, and works on both windows and mac computers.
 
-###Getting the HelloWorld project
+### Getting the HelloWorld project
 Now that you have a copy of SourceTree installed, it is time to actually go ahead and clone the repository. Don’t worry too much about the nuances of source control yet if you haven’t seen it before, this isn’t overly complicated.
 The HelloWorld agent app template is actually hosted on bitbucket, which integrates very well with SourceTree. Open up your browser and head on over to : 
 
