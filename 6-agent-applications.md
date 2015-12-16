@@ -133,6 +133,7 @@ This application can be broken down into key points which allow us to carry out 
     * Handlers are modules which we will write in order to call when things happen. They usually perform one main task each.
 * lib/services
     * Services are modules of code which we will write with  the intention of exporting various functions for related functionality. These can be simple or complex.
+    * they are also used to supply functioality that is exposed by the agent, such as registering with the platform, etc.
 * lib/sources
     * Sources are for managing sources of data which are for incoming data, or things that we may wish to watch for changes.
 
@@ -140,3 +141,73 @@ This application can be broken down into key points which allow us to carry out 
 In today's workshop - I will walk you through the code in this project, line by line.
 
 Keep an eye on the repository of the repository going forward, because I will actually be publishing a video on this as well, it just hasn't been done yet!
+
+# Run the application
+
+Remember the store_id we took note od earlier? We need to associate this agent with that id before we run it. 
+
+So open up the package.json inside the my-app directory, and change :
+
+_"store_id":""_
+
+to
+
+_"store_id":"YOUR ID HERE"_
+
+To run the agent with the application we have created, simply navigate to the directory of the app, and run the following command.
+
+```hs-agent-runner -w ./agent start```
+
+To kill the agent, run the following command
+
+```hs-agent-runner -w ./agent stop```
+
+# Register the agent
+Now that you have the agent running, with an app that works, you need to actually register the agent, so that the API will allow it to authenticate and begin sending requests.
+
+## Editing the .agent file
+Navigate to the _my-app/agent_ directory.
+
+there is a hidden file in this directory called agent.
+
+If you are on windows, you might need to enable the _""view hidden files"_ feature. After which you will be able to see it, it can be opened in any standard text editor.
+
+On linux / mac - hidden files are prefixed with a '.' to make them hidden. You can open it with any of the following commands. Any editor can edit them.
+
+Once you open the file, you will see the registration key, copy it.
+
+## Using the key to register
+Now, go back to bodhi tools : 
+
+[https://tools.bodhi.space/#/](https://tools.bodhi.space/#/)
+
+Select the agent manager.
+
+On the left, you will see an item on the left menu that says "Registration", select it.
+
+You will see a list of your stores (You may only have the one you createdin this workshop at present).
+
+In the text field to the right of your store, paste in the registration key, and click the _"request"_ key.
+
+Now you need to restart your agent - First, navigate to your _my-app_ directory and run the following commands:
+
+```hs-agent-runner -w ./agent stop```
+```hs-agent-runner -w ./agent start```
+
+
+The agent should run, and at then output a green line of output, which says :
+
+_```agent signed on```_
+
+# Running the test script
+The particular app from this exercise, is bundled with a test script. Which basically just generates some dummy data.
+
+Open up a second terminal and navigate to the _my-app_ directory.
+
+Run the test script, using the following command :
+
+```node test.js```
+
+This will populate the file.txt (Which the app watches for changes). And upload them, line by line, to the API.
+
+
