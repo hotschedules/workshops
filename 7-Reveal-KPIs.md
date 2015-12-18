@@ -27,7 +27,7 @@ You will create a simple KPI and add it to Reveal.
 
 ## Understanding the data model 
 
-The Reveal mobile app is an application that displays KPI's 
+The Reveal mobile app is an application that displays KPI's.  
 
 
 

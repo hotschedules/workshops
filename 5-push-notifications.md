@@ -11,6 +11,7 @@ In this workshop we will look at setting up Push Notifications.
 
 * Bodhi Mobile installed on your ios or android device
 * Accepted Push Notifications for your device
+* A valid user account that can access the API
 
 You need a version of the Bodhi Mobile native application(s) which supports registration as a push notification client.  
 
@@ -72,9 +73,10 @@ The “payload” document can contain any legal JSON document.  However, if you
 
 ## Example using CURL
 
-In this example we will send a notification to all Android users using CURL. 
+In this example we will send a notification to all Android users using CURL. You need to have a valid user account to access the API. 
 
-1. Create a text file and paste the following contents. In this example the text file is called 'message.json' - but you can call it anything you want. 
+1. Create a text file and paste the following contents. In this example the text file is called 'message.json' - but you can call it anything you want.
+ 
 
 ````
 {
@@ -82,14 +84,15 @@ In this example we will send a notification to all Android users using CURL.
  "payload": {"message":"Please join us for cocktails and canapes at 4"}
 }
 ````
+Note: Collapse the JSON into one line to mitigate the possibility of errors through hidden characters.
 
 2. Using CURL send a PUSH request sending the message file. 
 In this example our namespace is called 'tiffles'.
  
 
 ````
-curl -X POST - H "Content-Type: application/json" 
-https://api.bodhi.space/tiffles/notifications -d message.json
+curl -X POST -H "Content-Type: application/json" -u USERNAME:PASSWORD 
+https://api.bodhi.space/tiffles/notifications -d @message.json
 ````
 
 
