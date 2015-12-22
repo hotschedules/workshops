@@ -47,7 +47,7 @@ The notification expects a POST request where the body is a JSON document of the
 ````
 	{
 	 “to”: {
-		 [“type”: “BodhiUser | “BodhiDevice”]?,
+		 [“type”: “BodhiUser“ | “BodhiDevice”]?,
 		  “where”: <query document>
          },
 	 “payload”: <payload document>
@@ -80,7 +80,7 @@ In this example we will send a notification to all Android users using CURL. You
 
 ````
 {
- "to": {"type": "BodhiDevice", "where": {"os_type": "Android"}},
+ "to": {"type": "BodhiUser", "where": {"username": "YOURUSERNAME"}},
  "payload": {"message":"Please join us for cocktails and canapes at 4"}
 }
 ````
