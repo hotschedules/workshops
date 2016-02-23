@@ -15,11 +15,7 @@ If you want to use the platform and labor - then you need to write to both data 
 
 - [Prerequisites](#prereq)
 - [The API in 2 minutes](#api)
-- [The Query tool](#browser)
-- [Get data](#get)
-- [Test the query](#query)
-- [Post data](#post)
-- [Dictionary of types](#dictionary)
+- [GET and POST data](#get)
 - [HS Labor Data](#labour) 
 - [Canonical Data](#canonical)
 
@@ -47,7 +43,7 @@ The **host** is the public URL of the Platform Cloud. This is always <https://ap
 
 The **namespace** is the name of your Platform account or “tenant”. In this document we will assume our namespace is called “organics” - an account that exists for the organic chain of cafes located in the San Francisco Bay Area.
 
-The **resource** is the name of the data structure (or “type”) that you want to access.  An example or a resource is SalesItem or SalesTransaction. The resources is always prefixed with the '**resources/**' keyword.
+The **resource** is the name of the data structure (or “type”) that you want to access.  An example or a resource is SalesItem or SalesTransaction. The resource is always prefixed with the '**resources/**' keyword.
 
 The **query** is the typical type of query that you would make in the browser. It can be a simple request to get all results or a limited set of results using a where clause - or can be more complex and provide aggregated results. 
 
@@ -75,13 +71,13 @@ https://api.bodhi.space/organics/resources/Store?where={'display_name': { $eq: '
 API documentation for all Platform types - including any that you have created yourself, can be located at <https://api.Platform.space/apidocs/index.html>
 
 
-## <a name="browser">The Query tool</a>
+## <a name="get">GET and POST data</a>
 
 To get familiar with the API, first log into **https://tools.bodhi.space/query/**. This will ensure that any REST queries you make via the browser will be authenticated and correctly formatted.
 
 ![login](images/10.png "login")
 
-### <a name="get">GET Data</a>
+#### GET Data
 
 In the Bodhi Query tool, enter the name of the data type you want to access in the first input field. In this case you want to fetch all stores from the data type called 'Store' - so enter **Store** in the input box.
 
@@ -96,14 +92,12 @@ https://api.bodhi.space/organics/resources/Store
 Press Send to Execute the query. If you have any stores populated in your account you should see some data.
 
 
-### <a name="query">Test the query in a browser tab</a>
-
-Press the clipboard icon in the middle of the page to copy the query to your clipboard. 
+Now lets test the same query in a browser tab. Press the clipboard icon in the middle of the page to copy the query to your clipboard. 
 
 Open a new browser tab. Paste the query from the clipboard buffer into the address bar. Hit return to execute the query. you should see the same results in your browser window. You now know how to make and structure the REST requests against the platform API.
 
 
-### <a name="post">POST Data</a>
+#### POST Data
 
 To post data to the platform API go back to the Platform Query tool. Click the drop down option (marked GET) to change the operation to POST. 
 
@@ -128,7 +122,7 @@ When you are ready, press Send to post the data to the platform API. The Platfor
 
 
 
-### <a name="dictionary">Dictionary of types</a>
+#### Dictionary of types
 
 Before looking at the data types you need to populate or plan to query from the platform, you should take a look at the dictionary of data types located here **https://api.bodhi.space/apidocs/index.html**
 
@@ -146,6 +140,8 @@ This will open the browser and take you to the Store data definition as shown in
 
 
 You can interact with the API in the same way that you tested the API using the query tool.
+
+**NOTE:** It is recommended that you use the API docs to test and validate the API definition because the API docs are a live specification of the current API. This document, while providing some schema information, may become out of date over time as the API definition changes.
 
 
 ## <a name="labour">HS Labor Data</a>
@@ -166,6 +162,380 @@ Transactional data (changes on a per day basis)
 * HSTimecard 
 
 
+
+
+
+### HSEmployee
+
+
+````
+HSEmployee {
+			name (PersonName),
+			external_ids (Array[KeyValuePair], optional),
+			birthdate (date-time, optional),
+			positions (Array[EmployeePosition], optional),
+			status (string, optional),
+			phone_numbers (string, optional),
+			emails (string, optional),
+			addresses (Array[PostalAddress], optional),
+			nickname (string, optional)
+}
+````
+
+**HSEmployee Embedded type definition**
+
+
+````
+PersonName {
+			family_name (string),
+			honorific_prefix (string, optional),
+			honorific_suffix (string, optional),
+			middle_name (string, optional),
+			formatted_name (string, optional),
+			given_name (string, optional)
+}
+KeyValuePair {
+			key (string),
+			value (string, optional)
+}
+EmployeePosition {
+			employee_id (string, optional),
+			employee_reference (InStoreReference),
+			employment_period (DatePeriod, optional),
+			store_reference (InStoreReference),
+			job_reference (InStoreReference),
+			regular_rate (BodhiCurrency, optional),
+			overtime_rate (BodhiCurrency, optional),
+			store_id (string, optional),
+			job_id (string, optional),
+			status (string, optional),
+			doubletime_rate (BodhiCurrency, optional)
+}
+InStoreReference {
+			id (string),
+			name (string, optional)
+}
+DatePeriod {
+			from (date-time),
+			to (date-time, optional)
+}
+BodhiCurrency {
+			code (object) = [''],
+			value (integer),
+			scale (integer, optional)
+}
+PostalAddress {
+			country (object, optional) = [''],
+			extended_address (string, optional),
+			postal_code (string, optional),
+			region (string, optional),
+			street_address (string, optional),
+			type (string, optional),
+			locality (string, optional)
+}
+````
+
+
+### HSEmployeePosition   
+
+
+````
+HSEmployeePosition {
+			employee_id (string, optional),
+			employee_reference (InStoreReference),
+			employment_period (DatePeriod, optional),
+			store_reference (InStoreReference),
+			job_reference (InStoreReference),
+			regular_rate (BodhiCurrency, optional),
+			overtime_rate (BodhiCurrency, optional),
+			store_id (string, optional),
+			job_id (string, optional),
+			status (string, optional),
+			doubletime_rate (BodhiCurrency, optional)
+}
+````
+
+**HSEmployeePosition Embedded type definition**
+
+
+````
+InStoreReference {
+			id (string),
+			name (string, optional)
+}
+DatePeriod {
+			from (date-time),
+			to (date-time, optional)
+}
+BodhiCurrency {
+			code (object) = [''],
+			value (integer),
+			scale (integer, optional)
+}
+````
+
+
+
+
+
+ 
+### HSRevenueCenter 
+
+````
+HSRevenueCenter {
+			store_id (string),
+			instore_name (string, optional),
+			display_name (string, optional),
+			instore_id (string, optional)
+}
+````
+
+
+
+### HSSalesCategory 
+
+````
+HSSalesCategory {
+			store_id (string),
+			instore_name (string, optional),
+			display_name (string, optional),
+			instore_id (string, optional)
+}
+````
+
+
+### HSSalesCategoryRollup 
+
+
+````
+HSSalesCategoryRollup {
+			tax_id (string, optional),
+			tax_exempt (boolean, optional),
+			quantity (Real),
+			order_id (string, optional),
+			timestamp (date-time),
+			order_number (integer, optional),
+			canceled_closed (boolean, optional),
+			description (string, optional),
+			external_ids (Array[KeyValuePair], optional),
+			store_id (string),
+			discount_total (BodhiCurrency, optional),
+			voided_closed (boolean, optional),
+			tax_total (BodhiCurrency, optional),
+			non_sales_item (boolean, optional),
+			gross_total (BodhiCurrency, optional),
+			sales_category (InStoreReference, optional),
+			modified (boolean, optional),
+			tax_index (integer, optional),
+			department (InStoreReference, optional),
+			unit_price (BodhiCurrency, optional),
+			business_day (string, optional),
+			transaction_id (string),
+			net_total (BodhiCurrency),
+			carry_out (boolean, optional),
+			currency_scale (integer, optional),
+			tax_details (Array[SalesAmount], optional),
+			type (InStoreReference, optional),
+			currency_code (object, optional) = [''],
+			discount_details (Array[SalesAmount], optional),
+			discounted (boolean, optional)
+}
+````
+
+
+**HSSalesCategoryRollup Embedded type definition**
+
+
+````
+KeyValuePair {
+			key (string),
+			value (string, optional)
+}
+BodhiCurrency {
+			code (object) = [''],
+			value (integer),
+			scale (integer, optional)
+}
+InStoreReference {
+			id (string),
+			name (string, optional)
+}
+SalesAmount {
+			rate (Real, optional),
+			amount (BodhiCurrency, optional),
+			id (string, optional),
+			category (string, optional),
+			index (integer, optional)
+}
+````
+
+
+
+
+### HSStoreJob  
+
+````
+HSStoreJob {
+		regular_rate (BodhiCurrency, optional),
+		overtime_rate (BodhiCurrency, optional),
+		store_id (string),
+		instore_name (string),
+		instore_id (string),
+		doubletime_rate (BodhiCurrency, optional)
+}
+````
+
+
+**HSStoreJob Embedded type definition**
+
+````
+BodhiCurrency {
+		code (object) = [''],
+		value (integer),
+		scale (integer, optional)
+}
+````
+
+
+### HSSalesTransaction 
+
+````
+HSSalesTransaction {
+		tax_id (string, optional),
+		gratuity_total (BodhiCurrency, optional),
+		tax_exempt (boolean, optional),
+		order_id (string, optional),
+		timestamp (date-time),
+		order_number (integer, optional),
+		canceled_closed (boolean, optional),
+		item_count (integer, optional),
+		external_ids (Array[KeyValuePair], optional),
+		store_id (string),
+		discount_total (BodhiCurrency, optional),
+		voided_closed (boolean, optional),
+		tax_total (BodhiCurrency, optional),
+		employee (InStoreReference, optional),
+		change_total (BodhiCurrency, optional),
+		gross_total (BodhiCurrency, optional),
+		excess_tender (boolean, optional),
+		auto_tendered (boolean, optional),
+		point_of_sale_brand (string, optional),
+		training (boolean, optional),
+		point_of_sale (InStoreReference, optional),
+		tender_details (Array[SalesAmount], optional),
+		modified (boolean, optional),
+		tax_index (integer, optional),
+		department (InStoreReference, optional),
+		business_day (string, optional),
+		order_opened_at (date-time, optional),
+		net_total (BodhiCurrency, optional),
+		carry_out (boolean, optional),
+		revenue_center (InStoreReference, optional),
+		tender_total (BodhiCurrency),
+		change_details (Array[SalesAmount], optional),
+		customer (InStoreReference, optional),
+		guest_count (Real, optional),
+		car_count (Real, optional),
+		currency_scale (integer, optional),
+		tax_details (Array[SalesAmount], optional),
+		type (InStoreReference, optional),
+		currency_code (object, optional) = [''],
+		discount_details (Array[SalesAmount], optional),
+		discounted (boolean, optional),
+		table (InStoreReference, optional),
+		order_closed_at (date-time, optional)
+}
+````
+
+**HSSalesTransaction Embedded type definition**
+
+
+````
+BodhiCurrency {
+		code (object) = [''],
+		value (integer),
+		scale (integer, optional)
+}
+KeyValuePair {
+		key (string),
+		value (string, optional)
+}
+InStoreReference {
+		id (string),
+		name (string, optional)
+}
+SalesAmount {
+		rate (Real, optional),
+		amount (BodhiCurrency, optional),
+		id (string, optional),
+		category (string, optional),
+		index (integer, optional)
+}
+````
+
+
+### HSSchedule 
+
+````
+HSStoreSchedule {
+		store_id (string),
+		employee (InStoreReference),
+		job (InStoreReference),
+		start_at (date-time),
+		external (InStoreReference),
+		stop_at (date-time)
+}
+````
+
+
+**HSSchedule Embedded type definition**
+
+````
+InStoreReference {
+		id (string),
+		name (string, optional)
+}
+````
+
+
+### HSTimecard 
+
+
+````
+HSTimecard {
+		employee_id (string, optional),
+		employee_reference (InStoreReference, optional),
+		store_reference (InStoreReference, optional),
+		job_reference (InStoreReference, optional),
+		regular_rate (BodhiCurrency, optional),
+		overtime_rate (BodhiCurrency, optional),
+		external_ids (Array[KeyValuePair], optional),
+		store_id (string),
+		ended_at (date-time),
+		job_id (string, optional),
+		started_at (date-time),
+		business_day (string, optional),
+		doubletime_rate (BodhiCurrency, optional)
+}
+````
+
+**HSTimecard Embedded type definition**
+
+````
+InStoreReference {
+		id (string),
+		name (string, optional)
+}
+BodhiCurrency {
+		code (object) = [''],
+		value (integer),
+		scale (integer, optional)
+}
+KeyValuePair {
+		key (string),
+		value (string, optional)
+}
+````
 
 
 
