@@ -573,6 +573,12 @@ Employee {
 			addresses (Array[PostalAddress], optional),
 			nickname (string, optional)
 }
+````
+
+**Employee Embedded type definition**
+
+
+````
 PersonName {
 			family_name (string),
 			honorific_prefix (string, optional),
@@ -586,7 +592,7 @@ KeyValuePair {
 			value (string, optional)
 }
 PostalAddress {
-country (object, optional) = [''],
+			country (object, optional) = [''],
 			extended_address (string, optional),
 			postal_code (string, optional),
 			region (string, optional),
@@ -615,6 +621,11 @@ EmployeePosition {
 			status (string, optional),
 			doubletime_rate (BodhiCurrency, optional)
 }
+````
+
+**EmployeePosition Embedded type definition**
+
+````
 InStoreReference {
 			id (string),
 			name (string, optional)
@@ -635,22 +646,24 @@ BodhiCurrency {
 
 ````
 RevenueCenter {
-store_id (string),
-instore_name (string, optional),
-display_name (string, optional),
-instore_id (string, optional)
+			store_id (string),
+			instore_name (string, optional),
+			display_name (string, optional),
+			instore_id (string, optional)
 }
 ````
+
+
 
 
 ### SalesCategory 
 
 ````
 SalesCategory {
-store_id (string),
-instore_name (string, optional),
-display_name (string, optional),
-instore_id (string, optional)
+			store_id (string),
+			instore_name (string, optional),
+			display_name (string, optional),
+			instore_id (string, optional)
 }
 ````
 
@@ -660,17 +673,23 @@ instore_id (string, optional)
 
 ````
 StoreJob {
-regular_rate (BodhiCurrency, optional),
-overtime_rate (BodhiCurrency, optional),
-store_id (string),
-instore_name (string),
-instore_id (string),
-doubletime_rate (BodhiCurrency, optional)
+			regular_rate (BodhiCurrency, optional),
+			overtime_rate (BodhiCurrency, optional),
+			store_id (string),
+			instore_name (string),
+			instore_id (string),
+			doubletime_rate (BodhiCurrency, optional)
 }
+````
+
+**StoreJob Embedded type definition**
+
+
+````
 BodhiCurrency {
-code (object) = [''],
-value (integer),
-scale (integer, optional)
+			code (object) = [''],
+			value (integer),
+			scale (integer, optional)
 }
 ````
 
@@ -679,87 +698,99 @@ scale (integer, optional)
 ### SalesTransaction 
 ````
 SalesTransaction {
-tax_id (string, optional),
-gratuity_total (BodhiCurrency, optional),
-tax_exempt (boolean, optional),
-order_id (string, optional),
-timestamp (date-time),
-order_number (integer, optional),
-canceled_closed (boolean, optional),
-item_count (integer, optional),
-external_ids (Array[KeyValuePair], optional),
-store_id (string),
-discount_total (BodhiCurrency, optional),
-voided_closed (boolean, optional),
-tax_total (BodhiCurrency, optional),
-employee (InStoreReference, optional),
-change_total (BodhiCurrency, optional),
-gross_total (BodhiCurrency, optional),
-excess_tender (boolean, optional),
-auto_tendered (boolean, optional),
-point_of_sale_brand (string, optional),
-training (boolean, optional),
-point_of_sale (InStoreReference, optional),
-tender_details (Array[SalesAmount], optional),
-modified (boolean, optional),
-tax_index (integer, optional),
-department (InStoreReference, optional),
-business_day (string, optional),
-transaction_id (string),
-order_opened_at (date-time, optional),
-net_total (BodhiCurrency, optional),
-revenue_center (InStoreReference, optional),
-tender_total (BodhiCurrency),
-change_details (Array[SalesAmount], optional),
-customer (InStoreReference, optional),
-guest_count (Real, optional),
-service_type (string, optional),
-delivery_type (string, optional),
-car_count (Real, optional),
-currency_scale (integer, optional),
-tax_details (Array[SalesAmount], optional),
-type (InStoreReference, optional),
-currency_code (object, optional) = [''],
-discount_details (Array[SalesAmount], optional),
-discounted (boolean, optional),
-table (InStoreReference, optional),
-order_closed_at (date-time, optional)
+			tax_id (string, optional),
+			gratuity_total (BodhiCurrency, optional),
+			tax_exempt (boolean, optional),
+			order_id (string, optional),
+			timestamp (date-time),
+			order_number (integer, optional),
+			canceled_closed (boolean, optional),
+			item_count (integer, optional),
+			external_ids (Array[KeyValuePair], optional),
+			store_id (string),
+			discount_total (BodhiCurrency, optional),
+			voided_closed (boolean, optional),
+			tax_total (BodhiCurrency, optional),
+			employee (InStoreReference, optional),
+			change_total (BodhiCurrency, optional),
+			gross_total (BodhiCurrency, optional),
+			excess_tender (boolean, optional),
+			auto_tendered (boolean, optional),
+			point_of_sale_brand (string, optional),
+			training (boolean, optional),
+			point_of_sale (InStoreReference, optional),
+			tender_details (Array[SalesAmount], optional),
+			modified (boolean, optional),
+			tax_index (integer, optional),
+			department (InStoreReference, optional),
+			business_day (string, optional),
+			transaction_id (string),
+			order_opened_at (date-time, optional),
+			net_total (BodhiCurrency, optional),
+			revenue_center (InStoreReference, optional),
+			tender_total (BodhiCurrency),
+			change_details (Array[SalesAmount], optional),
+			customer (InStoreReference, optional),
+			guest_count (Real, optional),
+			service_type (string, optional),
+			delivery_type (string, optional),
+			car_count (Real, optional),
+			currency_scale (integer, optional),
+			tax_details (Array[SalesAmount], optional),
+			type (InStoreReference, optional),
+			currency_code (object, optional) = [''],
+			discount_details (Array[SalesAmount], optional),
+			discounted (boolean, optional),
+			table (InStoreReference, optional),
+			order_closed_at (date-time, optional)
 }
+````
+
+**SalesTransaction Embedded type definition**
+
+
+````
 BodhiCurrency {
-code (object) = [''],
-value (integer),
-scale (integer, optional)
+		code (object) = [''],
+		value (integer),
+		scale (integer, optional)
 }
 KeyValuePair {
-key (string),
-value (string, optional)
+		key (string),
+		value (string, optional)
 }
 InStoreReference {
-id (string),
-name (string, optional)
+		id (string),
+		name (string, optional)
 }
 SalesAmount {
-rate (Real, optional),
-amount (BodhiCurrency, optional),
-id (string, optional),
-category (string, optional),
-index (integer, optional)
+		rate (Real, optional),
+		amount (BodhiCurrency, optional),
+		id (string, optional),
+		category (string, optional),
+		index (integer, optional)
 }
 ````
 
 ### Schedule 
 ````
 StoreSchedule {
-store_id (string),
-employee (InStoreReference),
-job (InStoreReference),
-start_at (date-time),
-external (InStoreReference),
-stop_at (date-time)
+		store_id (string),
+		employee (InStoreReference),
+		job (InStoreReference),
+		start_at (date-time),
+		external (InStoreReference),
+		stop_at (date-time)
 }
+````
+
+**StoreSchedule Embedded type definition**
+
+
+````
 InStoreReference {
-id (string),
-name (string, optional)
+		id (string),
+		name (string, optional)
 }
 ````
 
@@ -768,34 +799,43 @@ name (string, optional)
 
 ````
 Timecard {
-employee_id (string, optional),
-employee_reference (InStoreReference, optional),
-store_reference (InStoreReference, optional),
-job_reference (InStoreReference, optional),
-regular_rate (BodhiCurrency, optional),
-overtime_rate (BodhiCurrency, optional),
-external_ids (Array[KeyValuePair], optional),
-store_id (string),
-ended_at (date-time),
-job_id (string, optional),
-started_at (date-time),
-overtime_minutes_worked (integer, optional),
-business_day (string, optional),
-doubletime_rate (BodhiCurrency, optional)
-}
-InStoreReference {
-id (string),
-name (string, optional)
-}
-BodhiCurrency {
-code (object) = [''],
-value (integer),
-scale (integer, optional)
-}
-KeyValuePair {
-key (string),
-value (string, optional)
+		employee_id (string, optional),
+		employee_reference (InStoreReference, optional),
+		store_reference (InStoreReference, optional),
+		job_reference (InStoreReference, optional),
+		regular_rate (BodhiCurrency, optional),
+		overtime_rate (BodhiCurrency, optional),
+		external_ids (Array[KeyValuePair], optional),
+		store_id (string),
+		ended_at (date-time),
+		job_id (string, optional),
+		started_at (date-time),
+		overtime_minutes_worked (integer, optional),
+		business_day (string, optional),
+		doubletime_rate (BodhiCurrency, optional)
 }
 ````
+
+
+**Timecard Embedded type definition**
+
+
+````
+InStoreReference {
+		id (string),
+		name (string, optional)
+}
+BodhiCurrency {
+		code (object) = [''],
+		value (integer),
+		scale (integer, optional)
+}
+KeyValuePair {
+		key (string),
+		value (string, optional)
+}
+````
+
+
 
 
