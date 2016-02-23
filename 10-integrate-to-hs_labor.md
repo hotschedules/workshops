@@ -146,7 +146,7 @@ You can interact with the API in the same way that you tested the API using the 
 
 ## <a name="labour">HS Labor Data</a>
 
-To push data to HotSchedules the following data types need to be populated
+To push data to HotSchedules Labor scheduling software only, the following data types need to be populated:
 
 Seed data (changes infrequently) 
 - HSEmployee   
@@ -541,4 +541,261 @@ KeyValuePair {
 
 
 ## <a name="canonical">Canonical Data</a>
+
+To push data to HotSchedules IoT Platform, the following data types can be populated. Note the data is accessible to any application deployed on the platform (assuming it has been granted permission). 
+
+Seed data (changes infrequently) 
+- Employee   
+- EmployeePosition    
+- RevenueCenter 
+- SalesCategory 
+- StoreJob  
+
+Transactional data (changes on a per day basis)
+* SalesTransaction 
+* Schedule 
+* Timecard 
  
+ 
+ 
+ 
+## Employee
+
+
+````
+Employee {
+			name (PersonName),
+			external_ids (Array[KeyValuePair], optional),
+			birthdate (date-time, optional),
+			status (string, optional),
+			phone_numbers (string, optional),
+			emails (string, optional),
+			addresses (Array[PostalAddress], optional),
+			nickname (string, optional)
+}
+PersonName {
+			family_name (string),
+			honorific_prefix (string, optional),
+			honorific_suffix (string, optional),
+			middle_name (string, optional),
+			formatted_name (string, optional),
+			given_name (string, optional)
+}
+KeyValuePair {
+			key (string),
+			value (string, optional)
+}
+PostalAddress {
+country (object, optional) = [''],
+			extended_address (string, optional),
+			postal_code (string, optional),
+			region (string, optional),
+			street_address (string, optional),
+			type (string, optional),
+			locality (string, optional)
+}
+````
+
+
+
+
+### EmployeePosition
+
+````
+EmployeePosition {
+			employee_id (string, optional),
+			employee_reference (InStoreReference),
+			employment_period (DatePeriod, optional),
+			store_reference (InStoreReference),
+			job_reference (InStoreReference),
+			regular_rate (BodhiCurrency, optional),
+			overtime_rate (BodhiCurrency, optional),
+			store_id (string, optional),
+			job_id (string, optional),
+			status (string, optional),
+			doubletime_rate (BodhiCurrency, optional)
+}
+InStoreReference {
+			id (string),
+			name (string, optional)
+}
+DatePeriod {
+			from (date-time),
+			to (date-time, optional)
+}
+BodhiCurrency {
+			code (object) = [''],
+			value (integer),
+			scale (integer, optional)
+}
+````
+
+
+###  RevenueCenter
+
+````
+RevenueCenter {
+store_id (string),
+instore_name (string, optional),
+display_name (string, optional),
+instore_id (string, optional)
+}
+````
+
+
+### SalesCategory 
+
+````
+SalesCategory {
+store_id (string),
+instore_name (string, optional),
+display_name (string, optional),
+instore_id (string, optional)
+}
+````
+
+
+### StoreJob  
+
+
+````
+StoreJob {
+regular_rate (BodhiCurrency, optional),
+overtime_rate (BodhiCurrency, optional),
+store_id (string),
+instore_name (string),
+instore_id (string),
+doubletime_rate (BodhiCurrency, optional)
+}
+BodhiCurrency {
+code (object) = [''],
+value (integer),
+scale (integer, optional)
+}
+````
+
+
+
+### SalesTransaction 
+````
+SalesTransaction {
+tax_id (string, optional),
+gratuity_total (BodhiCurrency, optional),
+tax_exempt (boolean, optional),
+order_id (string, optional),
+timestamp (date-time),
+order_number (integer, optional),
+canceled_closed (boolean, optional),
+item_count (integer, optional),
+external_ids (Array[KeyValuePair], optional),
+store_id (string),
+discount_total (BodhiCurrency, optional),
+voided_closed (boolean, optional),
+tax_total (BodhiCurrency, optional),
+employee (InStoreReference, optional),
+change_total (BodhiCurrency, optional),
+gross_total (BodhiCurrency, optional),
+excess_tender (boolean, optional),
+auto_tendered (boolean, optional),
+point_of_sale_brand (string, optional),
+training (boolean, optional),
+point_of_sale (InStoreReference, optional),
+tender_details (Array[SalesAmount], optional),
+modified (boolean, optional),
+tax_index (integer, optional),
+department (InStoreReference, optional),
+business_day (string, optional),
+transaction_id (string),
+order_opened_at (date-time, optional),
+net_total (BodhiCurrency, optional),
+revenue_center (InStoreReference, optional),
+tender_total (BodhiCurrency),
+change_details (Array[SalesAmount], optional),
+customer (InStoreReference, optional),
+guest_count (Real, optional),
+service_type (string, optional),
+delivery_type (string, optional),
+car_count (Real, optional),
+currency_scale (integer, optional),
+tax_details (Array[SalesAmount], optional),
+type (InStoreReference, optional),
+currency_code (object, optional) = [''],
+discount_details (Array[SalesAmount], optional),
+discounted (boolean, optional),
+table (InStoreReference, optional),
+order_closed_at (date-time, optional)
+}
+BodhiCurrency {
+code (object) = [''],
+value (integer),
+scale (integer, optional)
+}
+KeyValuePair {
+key (string),
+value (string, optional)
+}
+InStoreReference {
+id (string),
+name (string, optional)
+}
+SalesAmount {
+rate (Real, optional),
+amount (BodhiCurrency, optional),
+id (string, optional),
+category (string, optional),
+index (integer, optional)
+}
+````
+
+### Schedule 
+````
+StoreSchedule {
+store_id (string),
+employee (InStoreReference),
+job (InStoreReference),
+start_at (date-time),
+external (InStoreReference),
+stop_at (date-time)
+}
+InStoreReference {
+id (string),
+name (string, optional)
+}
+````
+
+
+### Timecard 
+
+````
+Timecard {
+employee_id (string, optional),
+employee_reference (InStoreReference, optional),
+store_reference (InStoreReference, optional),
+job_reference (InStoreReference, optional),
+regular_rate (BodhiCurrency, optional),
+overtime_rate (BodhiCurrency, optional),
+external_ids (Array[KeyValuePair], optional),
+store_id (string),
+ended_at (date-time),
+job_id (string, optional),
+started_at (date-time),
+overtime_minutes_worked (integer, optional),
+business_day (string, optional),
+doubletime_rate (BodhiCurrency, optional)
+}
+InStoreReference {
+id (string),
+name (string, optional)
+}
+BodhiCurrency {
+code (object) = [''],
+value (integer),
+scale (integer, optional)
+}
+KeyValuePair {
+key (string),
+value (string, optional)
+}
+````
+
+
