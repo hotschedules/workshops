@@ -36,8 +36,19 @@ You will create a simple rollup model and add stores to your model. In this exam
 
 ## Understanding the data model 
 
- 
+There are two data types that you need to populate to create a roll up. The first describes the roll up structure (what each node is, what the path is and what the parent of the node is)
 
+
+
+````
+{
+        "name": "uswest",
+        "display_name": "West Coast",
+        "description": "US West Coast Stores",
+        "path": "::usnodes:",
+        "parent": "usnodes"
+    } 
+````
 
 
 
@@ -49,7 +60,42 @@ You will create a simple rollup model and add stores to your model. In this exam
 
 
 
-## Add the dashboard entry
+## Rollup structure
+
+````
+{
+    "nodes": [{
+        "name": "usnodes",
+        "display_name": "United States",
+        "description": "US stores",
+        "path": "::",
+        "parent": ""
+    },{
+        "name": "useast",
+        "display_name": "East Coast",
+        "description": "US East Coast Stores",
+        "path": "::usnodes:",
+        "parent": "usnodes"
+    }, {
+        "name": "uswest",
+        "display_name": "West Coast",
+        "description": "US West Coast Stores",
+        "path": "::usnodes:",
+        "parent": "usnodes"
+    }, {
+        "name": "uscentral",
+        "display_name": "Central US",
+        "description": "Central US stores",
+        "path": "::usnodes:",
+        "parent": "usnodes"
+    }],
+    "description": "Primary graph model",
+    "name": "corporate",
+    "display_name": "Sales Rollup"
+}
+````
+
+
 
 
 
