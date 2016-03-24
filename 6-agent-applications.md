@@ -34,9 +34,51 @@ npm -v
 
 If you see output for both of these, then your install has worked correctly.
 
-## Getting the agent tools ##
+## Getting the HotSchedules tools ##
 
-The agent tools are available from npm
+The tooling provided by HotSchedules is aimed at making developers lives a lot easier. Here's how you get them.
+
+First, use NPM to install hs-toolbox
+
+```
+sudo npm install -g hs-toolbox
+```
+
+This will get you set up with two key pieces of software, which you can view an in depth readme for [here](https://www.npmjs.com/package/hs-toolbox)
+
+To get the tools up and running you will need to get your environment setup.
+
+You will need : 
+
+A) Your developer key - as provided by HotSchedules
+B) Your HotSchedules account details, and the name of the namespace associated with the account.
+
+Run the following command : 
+
+```
+hs-installer set-license <DEVELOPER KEY>
+```
+
+Where "<DEVELOPER KEY>" is the key provided to you by HotSchedules.
+
+Next, run the setup command for hs-profile, as follows : 
+
+```
+hs-profile setup
+```
+
+This terminal application will now take you through a step by step process of setting up your developer profile.
+
+Now that you have this done, you will be needing the HotSchedules agent tools.
+
+run the following command : 
+
+```
+sudo hs-installer install-tool hs-agent-tools
+```
+
+hs-installer will now install the tools globally on your machine.
+
 
 ## Creating an agent app ##
 
