@@ -23,7 +23,7 @@ A series of labs and workshops to get started with the Bodhi Platform.
 
 [Create a rollup model](https://github.com/hotschedules/workshops/blob/master/Cloud/7-create-rollup-models.md)
 
-[Bulk API]()
+[Bulk API](https://github.com/hotschedules/workshops/blob/master/Cloud/bulk-api.md)
 
 
 ## Integration
