@@ -19,10 +19,8 @@ A series of labs and workshops to get started with the Bodhi Platform.
 
 ## Cloud and API
 
-[Explore the Platform API](https://github.com/hotschedules/workshops/blob/master/Cloud/3-explore-the-Bodhi-api.md)
-
-[Create a rollup model](https://github.com/hotschedules/workshops/blob/master/Cloud/7-create-rollup-models.md)
-
+[Explore the Platform API](https://github.com/hotschedules/workshops/blob/master/Cloud/3-explore-the-Bodhi-api.md)  
+[Create a rollup model](https://github.com/hotschedules/workshops/blob/master/Cloud/7-create-rollup-models.md)  
 [Bulk API](https://github.com/hotschedules/workshops/blob/master/Cloud/bulk-api.md)
 
 
