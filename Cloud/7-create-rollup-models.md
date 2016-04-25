@@ -1,6 +1,5 @@
-# Bodhi Workshop #7 (draft)
 
-## Create roll up models
+# Create roll up models (WIP)
 
 In this workshop we will look at the process of creating a roll up model. You typically think of rollups as hierarchies and trees. 
 

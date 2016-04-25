@@ -1,6 +1,4 @@
-# Bodhi Workshop #1
-
-## Account Access and Agent set up
+# Account Access and Agent set up
 
 We are going to set up a full environment onto your machines. You will learn about the Bodhi Store, Bodhi Mobile, Bodhi Agent and Bodhi Agent apps in this workshop.
 

@@ -1,6 +1,4 @@
-# Bodhi Workshop #5
-
-## Push Notifications
+# Push Notifications
 
 In this workshop we will look at setting up Push Notifications. 
 

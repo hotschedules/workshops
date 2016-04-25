@@ -1,6 +1,4 @@
-# Bodhi Workshop #3
-
-## Explore the Bodhi API
+# Explore the HotSchedules IoT API
 
 
 In this third workshop we will explore the Bodhi REST API. Rather than give a full explanation  of the API - it is recommended that you review the Bodhi API mechanics documentation located [here](http://docs.bodhi.space/#api-mechanics-tutorial). 

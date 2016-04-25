@@ -1,6 +1,4 @@
-# Platform Workshop #10
-
-## HS Labor Integration
+# HotSchedules Labor Integration
 
 This documentation is intended for developers looking to integrate to the HS IoT Platform with the purpose of building a bi-directional integration into their point of sale systems. 
 

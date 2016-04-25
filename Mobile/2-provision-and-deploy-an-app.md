@@ -1,6 +1,4 @@
-# Bodhi Workshop #2
-
-## Provision and deploy an App
+# Provision and deploy an App
 
 
 In this second workshop, we will deploy the Reveal application. The Reveal app makes use of server side jobs to process inbound data into aggregated data in real time. The app is installed from the Google Play or Apple AppStore.

@@ -1,6 +1,4 @@
-# Bodhi Workshop #4
-
-## Mobile Application Development
+# Mobile Application Development
 
 In this workshop we will look at the process of mobile application development. 
 
