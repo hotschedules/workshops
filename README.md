@@ -11,9 +11,9 @@ A series of labs and workshops to get started with the Bodhi Platform.
 
 ## Agents
 
-[Setup an agent](https://github.com/hotschedules/workshops/blob/master/Agents/setup-agent.md)
-[Create an agent app](https://github.com/hotschedules/workshops/blob/master/Agents/8-create-agent-app-with-hs-tools.md)
-[Set up the KDS agent app](https://github.com/hotschedules/workshops/blob/master/Agents/9-set-up-the-KDS-agent-app.md)
+[Setup an agent](https://github.com/hotschedules/workshops/blob/master/Agents/setup-agent.md)  
+[Create an agent app](https://github.com/hotschedules/workshops/blob/master/Agents/8-create-agent-app-with-hs-tools.md)  
+[Set up the KDS agent app](https://github.com/hotschedules/workshops/blob/master/Agents/9-set-up-the-KDS-agent-app.md)  
 
 
 
@@ -31,6 +31,6 @@ A series of labs and workshops to get started with the Bodhi Platform.
 
 ## Mobile
 
-[Provision and deploy an app](https://github.com/hotschedules/workshops/blob/master/Mobile/2-provision-and-deploy-an-app.md)
-[Mobile application development](https://github.com/hotschedules/workshops/blob/master/Mobile/4-mobile-application-development.md)
-[Push notifications](https://github.com/hotschedules/workshops/blob/master/Mobile/5-push-notifications.md)
+[Provision and deploy an app](https://github.com/hotschedules/workshops/blob/master/Mobile/2-provision-and-deploy-an-app.md)  
+[Mobile application development](https://github.com/hotschedules/workshops/blob/master/Mobile/4-mobile-application-development.md)  
+[Push notifications](https://github.com/hotschedules/workshops/blob/master/Mobile/5-push-notifications.md)  
