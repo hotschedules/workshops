@@ -797,6 +797,7 @@ InStoreReference {
 
 ````
 Timecard {
+		breaks (Array[TimecardBreak], optional),
 		employee_id (string, optional),
 		employee_reference (InStoreReference, optional),
 		store_reference (InStoreReference, optional),
@@ -805,11 +806,13 @@ Timecard {
 		overtime_rate (BodhiCurrency, optional),
 		external_ids (Array[KeyValuePair], optional),
 		store_id (string),
-		ended_at (date-time),
+		ended_at (date-time, optional),
+		shift_closed (boolean, optional),
 		job_id (string, optional),
 		started_at (date-time),
 		overtime_minutes_worked (integer, optional),
 		business_day (string, optional),
+		total_minutes_worked (integer, optional),
 		doubletime_rate (BodhiCurrency, optional)
 }
 ````
@@ -819,6 +822,13 @@ Timecard {
 
 
 ````
+TimecardBreak {
+		start_time (date-time),
+		end_time (date-time, optional),
+		minutes (integer, optional),
+		is_paid (boolean, optional),
+		hourly_rate (string, optional)
+}
 InStoreReference {
 		id (string),
 		name (string, optional)
