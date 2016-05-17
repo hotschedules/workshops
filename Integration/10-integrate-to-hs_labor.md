@@ -73,13 +73,13 @@ API documentation for all Platform types - including any that you have created y
 
 To get familiar with the API, first log into **https://tools.bodhi.space/query/**. This will ensure that any REST queries you make via the browser will be authenticated and correctly formatted.
 
-![login](images/10.png "login")
+![login](../images/10.png "login")
 
 #### GET Data
 
 In the Bodhi Query tool, enter the name of the data type you want to access in the first input field. In this case you want to fetch all stores from the data type called 'Store' - so enter **Store** in the input box.
 
-![querytool](images/labour1.png "get")
+![querytool](../images/labour1.png "get")
 
 Before you press Send to execute the query, look at the middle of the page. You can see that the Query tool has built up the query you are about to send to the Platform API. It should look something like this:
 
@@ -99,7 +99,7 @@ Open a new browser tab. Paste the query from the clipboard buffer into the addre
 
 To post data to the platform API go back to the Platform Query tool. Click the drop down option (marked GET) to change the operation to POST. 
 
-![querytoolpost](images/labour2.png "post")
+![querytoolpost](../images/labour2.png "post")
 
 The query tool will create a pre-populated JSON structure for you, so you can write to the data type. Go ahead and populate the data structure. Note: you don't have to populate all the properties - but some are mandatory. If you just want to save time, the following example is a bare minimum that you can POST.  You can copy the content and post this instead.
 
@@ -114,7 +114,7 @@ The query tool will create a pre-populated JSON structure for you, so you can wr
 }
 ````
 
-![querytoolpostdata](images/labour3.png "postdata")
+![querytoolpostdata](../images/labour3.png "postdata")
 
 When you are ready, press Send to post the data to the platform API. The Platform should respond with a 204 saying the data was created. If you made any syntax errors you will be informed and the post will fail.
 
@@ -134,7 +134,7 @@ https://api.bodhi.space/organics/api-docs#!/Store
 This will open the browser and take you to the Store data definition as shown in the diagram below.
 
 
-![swagger](images/labour4.png "swagger")
+![swagger](../images/labour4.png "swagger")
 
 
 You can interact with the API in the same way that you tested the API using the query tool.
