@@ -1,4 +1,4 @@
-# bodhi-workshops
+# HotSchedules IoT Platform workshops
 A series of labs and workshops to get started with the Bodhi Platform.
 
 
