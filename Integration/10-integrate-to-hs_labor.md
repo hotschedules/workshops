@@ -147,8 +147,8 @@ You can interact with the API in the same way that you tested the API using the 
 To push data to HotSchedules Labor scheduling software only, the following data types need to be populated:
 
 Seed data (changes infrequently) 
-- HSEmployee   
-- HSEmployeePosition    
+- HSStoreEmployee   
+- HSStoreEmployeeJob     
 - HSRevenueCenter 
 - HSSalesCategory 
 - HSSalesCategoryRollup 
@@ -163,17 +163,20 @@ Transactional data (changes on a per day basis)
 
 
 
-### HSEmployee
+### HSStoreEmployee
 
 
 ````
-HSEmployee {
+HSStoreEmployee {
+			hr_id (string, optional),
 			name (PersonName),
-			external_ids (Array[KeyValuePair], optional),
+			employment_period (DatePeriod, optional),
+			store_id (string, optional),
+			store (InStoreReference),
 			birthdate (date-time, optional),
-			positions (Array[EmployeePosition], optional),
 			status (string, optional),
 			phone_numbers (string, optional),
+			instore_id (string),
 			emails (string, optional),
 			addresses (Array[PostalAddress], optional),
 			nickname (string, optional)
@@ -234,22 +237,21 @@ PostalAddress {
 ````
 
 
-### HSEmployeePosition   
+### HSStoreEmployeeJob   
 
 
 ````
-HSEmployeePosition {
-			employee_id (string, optional),
-			employee_reference (InStoreReference),
-			employment_period (DatePeriod, optional),
-			store_reference (InStoreReference),
-			job_reference (InStoreReference),
-			regular_rate (BodhiCurrency, optional),
-			overtime_rate (BodhiCurrency, optional),
-			store_id (string, optional),
-			job_id (string, optional),
-			status (string, optional),
-			doubletime_rate (BodhiCurrency, optional)
+HSStoreEmployeeJob {
+	employee_id (string, optional),
+	regular_rate (BodhiCurrency, optional),
+	overtime_rate (BodhiCurrency, optional),
+	external_ids (Array[KeyValuePair], optional),
+	store_id (string, optional),
+	employee (InStoreReference),
+	job (InStoreReference),
+	store (InStoreReference),
+	job_id (string, optional),
+	doubletime_rate (BodhiCurrency, optional)
 }
 ````
 
