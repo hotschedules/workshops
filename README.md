@@ -20,15 +20,23 @@ A series of labs and workshops to get started with the Bodhi Platform and API.
 
 ## Cloud
 
+#### API
 [Using the IoT Platform API](https://github.com/hotschedules/workshops/blob/master/Cloud/3-explore-the-Bodhi-api.md)  
 [Using the Bulk API](https://github.com/hotschedules/workshops/blob/master/Cloud/bulk-api.md)  
-[Using the Platform API for HotSchedules Labor data](https://github.com/hotschedules/workshops/blob/master/Integration/10-integrate-to-hs_labor.md)    
-[Create a rollup model](https://github.com/hotschedules/workshops/blob/master/Cloud/7-create-rollup-models.md)  
+[Using the HotSchedyles Application API](https://github.com/hotschedules/workshops/blob/master/Cloud/hotschedules_application_api)    
 
+
+
+#### Data model
+[Using the Platform API for HotSchedules Labor data](https://github.com/hotschedules/workshops/blob/master/Cloud/10-integrate-to-hs_labor.md)    
+[Creating rollup models](https://github.com/hotschedules/workshops/blob/master/Cloud/7-create-rollup-models.md)  
+
+#### Services
+ 
+[Push notifications](https://github.com/hotschedules/workshops/blob/master/Cloud/5-push-notifications.md)  
 
 
 ## Mobile
 
-[Provision and deploy an app](https://github.com/hotschedules/workshops/blob/master/Mobile/2-provision-and-deploy-an-app.md)  
 [Mobile application development](https://github.com/hotschedules/workshops/blob/master/Mobile/4-mobile-application-development.md)  
-[Push notifications](https://github.com/hotschedules/workshops/blob/master/Mobile/5-push-notifications.md)  
+[Provision and deploy a mobile app](https://github.com/hotschedules/workshops/blob/master/Mobile/2-provision-and-deploy-an-app.md)  
