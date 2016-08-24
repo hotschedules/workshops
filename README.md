@@ -1,10 +1,11 @@
 # HotSchedules IoT Platform workshops
-A series of labs and workshops to get started with the Bodhi Platform.
+A series of labs and workshops to get started with the Bodhi Platform and API.
 
 
 
 ## Getting started
 
+[Pre-requisite sotware](https://github.com/hotschedules/workshops/blob/master/Start/pre-requisites.md)    
 [Set up a store](https://github.com/hotschedules/workshops/blob/master/Start/1-setup-store-and-agent.md)
 
 
@@ -17,16 +18,13 @@ A series of labs and workshops to get started with the Bodhi Platform.
 
 
 
-## Cloud and API
+## Cloud
 
-[Explore the Platform API](https://github.com/hotschedules/workshops/blob/master/Cloud/3-explore-the-Bodhi-api.md)  
+[Using the IoT Platform API](https://github.com/hotschedules/workshops/blob/master/Cloud/3-explore-the-Bodhi-api.md)  
+[Using the Bulk API](https://github.com/hotschedules/workshops/blob/master/Cloud/bulk-api.md)  
+[Using the Platform API for HotSchedules Labor data](https://github.com/hotschedules/workshops/blob/master/Integration/10-integrate-to-hs_labor.md)    
 [Create a rollup model](https://github.com/hotschedules/workshops/blob/master/Cloud/7-create-rollup-models.md)  
-[Bulk API](https://github.com/hotschedules/workshops/blob/master/Cloud/bulk-api.md)
 
-
-## Integration
-
-[HotSchedules Labor](https://github.com/hotschedules/workshops/blob/master/Integration/10-integrate-to-hs_labor.md)
 
 
 ## Mobile
