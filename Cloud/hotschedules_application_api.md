@@ -15,12 +15,12 @@ The Application API is defined as follows
 <HOST><NAMESPACE><RESOURCE><CONCEPT ID><STORE ID><METHOD>?<PARAMS>
 ````
 
-The Production Host Is : <https://api.bodhi.space>
-The Namespace is your Platform account name.
-The Application API makes use of [Vert.x](http://vertx.io/) for hotschedules. The vertx resource is accessed using as "controllers/vertx/". The application is "hotschedules" 
+The Production Host Is : <https://api.bodhi.space>  
+The Namespace is your Platform account name.  
+The Application API makes use of [Vert.x](http://vertx.io/) for hotschedules. The vertx resource is accessed using as "controllers/vertx/". The application is "hotschedules"   
 
 Example. We want information about all the active employees for a store with ID: 2 belonging to Concept 1. Our account name is 'bladerunner'. 
-The URL request would be constructed as follows:
+The URL request would be constructed as follows:  
 
 
 Host: api.bodhi.space  
