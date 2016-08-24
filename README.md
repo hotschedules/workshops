@@ -23,7 +23,7 @@ A series of labs and workshops to get started with the Bodhi Platform and API.
 #### API
 [Using the IoT Platform API](https://github.com/hotschedules/workshops/blob/master/Cloud/3-explore-the-Bodhi-api.md)  
 [Using the Bulk API](https://github.com/hotschedules/workshops/blob/master/Cloud/bulk-api.md)  
-[Using the HotSchedyles Application API](https://github.com/hotschedules/workshops/blob/master/Cloud/hotschedules_application_api)    
+[Using the HotSchedules Application API](https://github.com/hotschedules/workshops/blob/master/Cloud/hotschedules_application_api.md)    
 
 
 
