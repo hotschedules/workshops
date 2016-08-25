@@ -5,7 +5,7 @@ A series of labs and workshops to get started with the Bodhi Platform and API.
 
 ## Getting started
 
-[Pre-requisite sotware](https://github.com/hotschedules/workshops/blob/master/Start/pre-requisites.md)    
+[Pre-requisite software](https://github.com/hotschedules/workshops/blob/master/Start/pre-requisites.md)    
 [Set up a store](https://github.com/hotschedules/workshops/blob/master/Start/1-setup-store-and-agent.md)
 
 
