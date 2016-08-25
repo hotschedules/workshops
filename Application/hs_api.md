@@ -4,8 +4,22 @@ The HotSchedules IoT Platform provides a new way to interact with HotSchedules A
 
 Customers and developers have a choice when integrating with the HotSchedules Labor application. Data moves between the HotSchedules IoT platform and the HotSchedules application. You may choose to use the Platform API to get / post data but you must ensure the platform server side processes are running to ensure that data flows to the HotSchedules Application.
 
+To understand the API, read the API [Specification](https://github.com/hotschedules/workshops/blob/master/Application/hs_api.md#specification)
 
-## API Specification
+## Application Services
+
+[Employee](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md)  
+[Labour](https://github.com/hotschedules/workshops/blob/master/Application/hs_labour.md)  
+[Organisation](https://github.com/hotschedules/workshops/blob/master/Application/hs_org.md)  
+[Sales](https://github.com/hotschedules/workshops/blob/master/Application/hs_sales.md)  
+[Schedule](https://github.com/hotschedules/workshops/blob/master/Application/hs_schedule.md)  
+[Timecard](https://github.com/hotschedules/workshops/blob/master/Application/hs_timecard.md)  
+[Transactions](https://github.com/hotschedules/workshops/blob/master/Application/hs_transactions.md)  
+
+
+
+## Specification
+
 
 
 The Application API is defined as follows
@@ -55,15 +69,6 @@ curl -X GET -H "Content-Type:application/json" -u username:password
 
 
 
-## Services
-
-[Employee](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md)  
-[Labour](https://github.com/hotschedules/workshops/blob/master/Application/hs_labour.md)  
-[Organisation](https://github.com/hotschedules/workshops/blob/master/Application/hs_org.md)  
-[Sales](https://github.com/hotschedules/workshops/blob/master/Application/hs_sales.md)  
-[Schedule](https://github.com/hotschedules/workshops/blob/master/Application/hs_schedule.md)  
-[Timecard](https://github.com/hotschedules/workshops/blob/master/Application/hs_timecard.md)  
-[Transactions](https://github.com/hotschedules/workshops/blob/master/Application/hs_transactions.md)  
 
 
 
