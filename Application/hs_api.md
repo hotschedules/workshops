@@ -39,6 +39,8 @@ Store Id | The ID of the store | e.g. 2
 Method | The resource method we are calling | e.g. getEmpInfo
 Params | Additional information to pass to the operation | e.g. active_employee=true
 
+ 
+
 ## Example
 
 Tiffles is a two concept chain of coffee shops (concept 1) and bake shops (concept 2). We want to get information about all the active employees for our Palo Alto coffee store, Store number 2. 
@@ -70,6 +72,9 @@ curl -X GET -H "Content-Type:application/json" -u username:password
 
 
 
+**Technical Note**
+If you are using the HS IoT Platform API and the HS Application API you should be aware of the subtle differences between the two API definitions. The HS Platform API is a RESTful API built  on the HS Platform data model. It follows the standard convention for API calls - using HTTP VERBS to operate with data objects or services exposed on the platform.
 
+The HS Application API is a RESTful facade built on the orginal HotSchedules WS* SOAP API and preserves the same API call without the complexity of adding all the SOAP boiler plate code. It is for this reason that the Service methods include the operating verb (keywords such as 'get' and 'set') when it is by strict definition, not required.
 
 
