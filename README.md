@@ -17,13 +17,16 @@ A series of labs and workshops to get started with the Bodhi Platform and API.
 [Set up the KDS agent app](https://github.com/hotschedules/workshops/blob/master/Agents/9-set-up-the-KDS-agent-app.md)  
 
 
+## Application
+
+[Using the HotSchedules Application API](https://github.com/hotschedules/workshops/blob/master/Application/hs_api.md)  
+
 
 ## Cloud
 
 #### API
 [Using the IoT Platform API](https://github.com/hotschedules/workshops/blob/master/Cloud/3-explore-the-Bodhi-api.md)  
 [Using the Bulk API](https://github.com/hotschedules/workshops/blob/master/Cloud/bulk-api.md)  
-[Using the HotSchedules Application API](https://github.com/hotschedules/workshops/blob/master/Cloud/hotschedules_application_api.md)    
 
 
 

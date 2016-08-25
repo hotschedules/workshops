@@ -78,25 +78,7 @@ curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/n
 ```
 
 
-### getStoreEmployees
 
-Method: getStoreEmployees
-Params: active_only, boolean [true, false]
-
-
-```
-curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getStoreEmployees?active_only=true"
-```
-
-### getStoreJobs
-
-concept/store/
-
-```
-curl -X GET -H "Content-Type:application/json" -u U:P
- "https://api.bodhi.space/namespace/controllers/vertx/
- hotschedules/1/1/getStoreJobs?active_only=true"
-```
 
 
 
@@ -112,7 +94,64 @@ curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/n
 
 
 
-## Employee API
+## Employee Service
+This service provides operations for a third party to push or request employee and employee job data into HotSchedules.
+
+
+### getEmpJobs
+
+Get a list of all jobs assigned to all employees for a store.
+Takes a concept ID and a store ID and returns anarray of objects. 
+
+/concept/store/getEmpJobs?active_only=true
+
+
+concept Int 1..1 The identifier for the location's concept. Mustbe unique within the company. ContactHotSchedules if you're not sure about thisvalue.storeNum Int 1..1 Numeric (integer) identifier for the store. Mustbe unique within the concept.
+
+
+```
+curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getEmpJobs?active_only=true
+```
+
+
+### getStoreEmployees
+
+This method takes in a concept ID, store ID, a flag to determine ifonly active employees are returned, and returns an array of objects.
+
+Method: getStoreEmployees
+Params: active_only, boolean [true, false]
+
+
+```
+curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getStoreEmployees?active_only=true"
+```
+
+
+### getStoreJobs
+
+This method takes in a concept ID and a store ID, and returns anarray of all jobs currently defined in HotSchedules for the givenconcept/store.
+
+concept/store/
+
+```
+curl -X GET -H "Content-Type:application/json" -u U:P
+ "https://api.bodhi.space/namespace/controllers/vertx/
+ hotschedules/1/1/getStoreJobs?active_only=true"
+```
+
+
+
+setEmpJobs
+
+This method takes in a concept ID, store ID, and an array ofWSEmpJob objects to assign jobs to individual employees. Thismethod returns a WSReturn object.
+setEmps
+This method takes in a concept ID, store ID and an array ofWSEmployee objects. Using the authentication from the usernametoken and the conecpt and store IDs, the server will resolve whichHotSchedules client this sync is for. The array of employees will beparsed on the server side to employees who need to be inserted orupdated in the HS database. This method returns a WSReturnobject.
+
+
+
+
+
+
 
 
 ### getEmpInfo
@@ -138,14 +177,7 @@ getEmpInfo?active_only=true"
 curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getEmpAvailability?active_only=true"
 ```
 
-### getEmpJobs
 
-
-/concept/store/getEmpJobs?active_only=true
-
-```
-curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getEmpJobs?active_only=true
-```
 
 
 
@@ -161,13 +193,27 @@ curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/n
 ## Schedules, Shifts and Timecards
 
 
+ScheduleService Web ServiceDescriptionThis service is intended for third parties to be able to grab scheduled shifts from HotSchedules and import theminto their POS/data warehouse/enterprise/etc. system.
+
+
 ### getSchedule
 
+This method takes in a concept ID, store ID, start and end dates. Itreturns an array of WSScheduleItem objects, which represent onescheduled shift each, for import into the POS. This method returns alimited amount of data per shift: employee HS ID, employee POS ID,internal HS Job ID, POS Job ID, shift start date/time, shift enddate/time, work week start date/time, work week end date/time.
+This method takes in a concept ID, store ID, start and end dates. It returns an array of WSScheduleItemobjects, which represent one scheduled shift each, for import into the POS. This method returns a limitedamount of data per shift: employee HS ID, employee POS ID, internal HS Job ID, POS Job ID, shift startdate/time, shift end date/time, work week start date/time, work week end date/time.
+
 /concept/store/getSchedule?start_day=DD&start_month=MM&start_year=YYYY&end_day=DD&end_month=MM&end_year=YYYY
+
+
+
+
+
 
 ```
 curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getSchedule?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016"
 ```
+
+
+
 
 ### getTimeCards
 
