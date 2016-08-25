@@ -1,6 +1,6 @@
 # The HotSchedules Application API
 
-The HotSchedules IoT Platform provides a new way to interact with HotSchedules Application Data through a REST API. The legacy SOAP API will be depricated and should no longer be used. 
+The HotSchedules IoT Platform provides a new way to interact with HotSchedules Application Data through a REST API.  
 
 Customers and developers have a choice when integrating with the HotSchedules Labor application. Data moves between the HotSchedules IoT platform and the HotSchedules application. You may choose to use the Platform API to get / post data but you must ensure the platform server side processes are running to ensure that data flows to the HotSchedules Application.
 

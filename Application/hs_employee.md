@@ -3,12 +3,19 @@
 This service provides operations for a third party to push or request employee and employee job data into HotSchedules.
 
 
-## getEmpJobs
+## Get All Employee Jobs for a Store
 
-Get a list of all jobs assigned to all employees for a store.
-Takes a concept ID and a store ID and returns anarray of objects. 
+**Method Name:** getEmpJobs
 
-/concept/store/getEmpJobs?active_only=true
+Get a list of all jobs assigned to all employees for a store.  
+Takes a concept ID and a store ID and returns an array of Employee Job objects. 
+
+**URL**
+
+````
+/concept/store/getEmpJobs?active_only=BOOLEAN
+````
+
 
 
 concept Int 1..1 The identifier for the location's concept. Mustbe unique within the company. ContactHotSchedules if you're not sure about thisvalue.storeNum Int 1..1 Numeric (integer) identifier for the store. Mustbe unique within the concept.
