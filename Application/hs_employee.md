@@ -10,7 +10,7 @@
 Get a list of all jobs assigned to all employees for a store.  
 Takes a concept ID and a store ID and returns an array of Employee Job objects. 
 
-#### Request
+### Request
 
 
 ````
@@ -25,7 +25,7 @@ concept | Integer  | The identifier for the location's concept.store  | Integer
 active_only | Boolean | Include terminated employees in the response?
 
 
-#### Response
+### Response
 
 
 Response | Primitive | Definition
@@ -54,7 +54,7 @@ primary | Boolean |
     "primary": false
   }
 ]
-````#### cURL Request 
+````### cURL Request 
 
 ```
 curl -X GET -H "Content-Type:application/json" -u U:P 
@@ -63,17 +63,80 @@ curl -X GET -H "Content-Type:application/json" -u U:P
 ```
 
 
-## getStoreEmployees
+## Get All Employees for a Store
 
-This method takes in a concept ID, store ID, a flag to determine ifonly active employees are returned, and returns an array of objects.
+**Method Name:** getStoreEmployees
 
-Method: getStoreEmployees
-Params: active_only, boolean [true, false]
+This method takes in a concept ID, store ID, a flag to return only active employees and returns an array of Employee objects.
+
+### Request
+
+
+````
+/concept/store/getStoreEmployees?active_only=BOOLEAN
+````
+
+
+#### Response
+
+
+Response | Primitive | Definition
+------------ | ------------- | ------------
+zipCode | Integer  | hireDate  | UTC | 
+address | String | 
+clientId | Integer  | LName  | String | 
+address2 | String | 
+city | String  | mobile  | String | 
+NName | String | 
+altId | Integer  | FName  | String | 
+empNum | Integer | 
+phone | String  | hsId  | Integer | 
+dob | UTC | 
+state | String  | storeNum  | Integer | 
+email | String | 
+status | Integer | 
+
+**Example Response**
+
+````
+[
+  {
+    "zipCode": "",
+    "hireDate": "2012-05-04T17:00:14.590-05:00",
+    "address": "",
+    "clientId": 14935377,
+    "LName": "Perkins",
+    "address2": "",
+    "city": "",
+    "mobile": "",
+    "NName": "",
+    "altId": -1,
+    "FName": "Norbert",
+    "empNum": -1,
+    "phone": "no number",
+    "hsId": 3190170,
+    "dob": "1971-12-07T00:00:00-06:00",
+    "state": "",
+    "storeNum": 2,
+    "email": "",
+    "status": 1
+  },
+]
+````#### cURL Request 
+
+
 
 
 ```
 curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getStoreEmployees?active_only=true"
 ```
+
+
+
+
+
+
+
 
 
 ## getStoreJobs
