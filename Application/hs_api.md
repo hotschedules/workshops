@@ -26,19 +26,20 @@ The Application API is defined as follows
 
 
 ````
-<HOST><NAMESPACE><RESOURCE><CONCEPT ID><STORE ID><METHOD>?<PARAMS>
+<Host><Namespace><Platform Resource><Concept Id><Store Id><Method>?<Params>
 ````
 
 Property | Definition | Actual value or example
 ------------ | ------------- | ------------
-HOST | The Production instance  | <https://api.bodhi.space>
-NAMESPACE | The Namespace is your account name | e.g. TifflesCakes | 
-RESOURCE |  The Application API makes use of [Vert.x](http://vertx.io/) to integrate with Hotschedules Labor. The vertx resource is accessed using as "controllers/vertx/". The application is "hotschedules" |   controllers/vertx/hotschedules
-CONCEPT | The ID of the concept or brand | e.g. 1
-STORE ID | The ID of the store | e.g. 2
-METHOD | The resource method we are calling | e.g. getEmpInfo
+Host | The Production instance  | <https://api.bodhi.space>
+Namespace | The Namespace is your account name | e.g. TifflesCakes | 
+Platform Resource |  The Application API makes use of [Vert.x](http://vertx.io/) to integrate with Hotschedules Labor. The platform resource is accessed using as "controllers/vertx/". The application is "hotschedules" |   controllers/vertx/hotschedules
+Concept Id | The ID of the concept or brand | e.g. 1
+Store Id | The ID of the store | e.g. 2
+Method | The resource method we are calling | e.g. getEmpInfo
+Params | Additional information to pass to the operation | e.g. active_employee=true
 
-Example Use case
+## Example
 
 Tiffles is a two concept chain of coffee shops (concept 1) and bake shops (concept 2). We want to get information about all the active employees for our Palo Alto coffee store, Store number 2. 
 
