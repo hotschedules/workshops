@@ -284,12 +284,11 @@ statusNum | Integer |
 
 
 
-```
+````
 curl -X GET -H "Content-Type:application/json" -u U:P
  "https://api.bodhi.space/namespace/controllers/vertx/
  hotschedules/1/1/getEmpAvailability?active_only=true"
-```
-```
+````
 
 
 
