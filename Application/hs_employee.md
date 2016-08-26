@@ -3,65 +3,6 @@
 This service provides operations for a third party to push or request employee and employee job data into HotSchedules.
 
 
-## Get All Employee Jobs for a Store
-
-**Method Name:** getEmpJobs
-
-Get a list of all jobs assigned to all employees for a store.  
-Takes a concept ID and a store ID and returns an array of Employee Job objects. 
-
-### Request
-
-
-````
-/concept/store/getEmpJobs?active_only=BOOLEAN
-````
-
-
-
-Property | Primitive | Definition
------------- | ------------- | ------------
-concept | Integer  | The identifier for the location's concept.store  | Integer | Identifier for the store
-active_only | Boolean | Include terminated employees in the response?
-
-
-### Response
-
-
-Response | Primitive | Definition
------------- | ------------- | ------------
-hsJobId | Integer  | clientId  | Integer | 
-regWage | Real | 
-posEmpId | Integer  | hsEmpId  | Integer | 
-storeNum | Integer | 
-ovtWage | Real  | posJobId  | Integer | 
-primary | Boolean | 
-
-
-**Example Response**
-
-````
-[
-  {
-    "hsJobId": 8965542,
-    "clientId": 14935377,
-    "regWage": 8.8,
-    "posEmpId": 4001,
-    "hsEmpId": 4177257,
-    "storeNum": 2,
-    "ovtWage": 13.200001,
-    "posJobId": 18,
-    "primary": false
-  }
-]
-````### cURL Request 
-
-```
-curl -X GET -H "Content-Type:application/json" -u U:P 
-"https://api.bodhi.space/namespace/controllers/vertx/hotschedules
-/1/1/getEmpJobs?active_only=true
-```
-
 
 ## Get All Employees for a Store
 
@@ -128,9 +69,74 @@ status | Integer |
 
 
 ```
-curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getStoreEmployees?active_only=true"
+curl -X GET -H "Content-Type:application/json" -u U:P 
+"https://api.bodhi.space/namespace/controllers/vertx/hotschedules
+/1/1/getStoreEmployees?active_only=true"
 ```
 
+
+
+
+
+
+## Get All Employee Jobs for a Store
+
+**Method Name:** getEmpJobs
+
+Get a list of all jobs assigned to all employees for a store.  
+Takes a concept ID and a store ID and returns an array of Employee Job objects. 
+
+### Request
+
+
+````
+/concept/store/getEmpJobs?active_only=BOOLEAN
+````
+
+
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+concept | Integer  | The identifier for the location's concept.store  | Integer | Identifier for the store
+active_only | Boolean | Include terminated employees in the response?
+
+
+### Response
+
+
+Response | Primitive | Definition
+------------ | ------------- | ------------
+hsJobId | Integer  | clientId  | Integer | 
+regWage | Real | 
+posEmpId | Integer  | hsEmpId  | Integer | 
+storeNum | Integer | 
+ovtWage | Real  | posJobId  | Integer | 
+primary | Boolean | 
+
+
+**Example Response**
+
+````
+[
+  {
+    "hsJobId": 8965542,
+    "clientId": 14935377,
+    "regWage": 8.8,
+    "posEmpId": 4001,
+    "hsEmpId": 4177257,
+    "storeNum": 2,
+    "ovtWage": 13.200001,
+    "posJobId": 18,
+    "primary": false
+  }
+]
+````### cURL Request 
+
+```
+curl -X GET -H "Content-Type:application/json" -u U:P 
+"https://api.bodhi.space/namespace/controllers/vertx/hotschedules
+/1/1/getEmpJobs?active_only=true
+```
 
 
 
