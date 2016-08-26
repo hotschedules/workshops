@@ -5,6 +5,15 @@ The HotSchedules IoT Platform API and HotSchedules Application API can be access
 
 Most of the examples in these workshops use cURL to access the REST API.
 
+[Using cURL](https://github.com/hotschedules/workshops/blob/master/Start/pre-requisites.md#using-curl)    
+[Using Bodhi CLI](https://github.com/hotschedules/workshops/blob/master/Start/pre-requisites.md#using-the-platform-cli)    
+[Using Java](https://github.com/hotschedules/workshops/blob/master/Start/pre-requisites.md#using-java)    
+[Using C#](https://github.com/bodhi-space/bodhi-dotnet-superagent)    
+[Uisng Ruby](https://github.com/bodhi-space/bodhi-slam)    
+
+
+
+
 
 ## Using cURL
 
