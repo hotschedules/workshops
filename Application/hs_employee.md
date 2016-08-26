@@ -3,7 +3,7 @@
 This service provides operations for a third party to push or request employee and employee job data into HotSchedules.
 
 
-[Get all employees for a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employees-for-a-store)
+[Get all employees for a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employees-for-a-store)  
 [Get all employee jobs for a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employee-jobs-for-a-store)
 
 
