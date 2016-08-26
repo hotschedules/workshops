@@ -25,8 +25,8 @@ end_year=YYYY
 ````
 
 
-Property | Primitive | Definition
------------- | ------------- | ------------
+Property | Primitive | 
+------------ | ------------- | 
 start_day | Integer  | start_month  | Integer | 
 start_year | Integer | 
 end_day | Integer | 
@@ -37,8 +37,8 @@ end_year | Integer |
 #### Response
 
 
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
   jobName | String | 
   ovtTtl | Real | 
   ovtHrs | Integer | 
@@ -62,8 +62,8 @@ Response | Primitive | Definition
   
  businessDate complex type
  
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
     month | Integer | 
     year | Integer | 
     day | Integer
@@ -162,8 +162,8 @@ end_year=YYYY&
 ````
 
 
-Property | Primitive | Definition
------------- | ------------- | ------------
+Property | Primitive | 
+------------ | ------------- | 
 start_day | Integer  | start_month  | Integer | 
 start_year | Integer | 
 end_day | Integer | 
@@ -172,8 +172,8 @@ end_year | Integer |
 
 
 
-Timecard property | Primitive | Definition
------------- | ------------- | ------------
+Timecard property | Primitive | 
+------------ | ------------- | 
   jobName | String | 
   ovtTtl | Real | 
   ovtHrs | Integer | 
@@ -197,8 +197,8 @@ Timecard property | Primitive | Definition
   
  businessDate complex type
  
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
     month | Integer | 
     year | Integer | 
     day | Integer

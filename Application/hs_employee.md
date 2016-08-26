@@ -31,8 +31,8 @@ This method takes in a concept ID, store ID, a flag to return only active emplo
 #### Response
 
 
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
 zipCode | Integer  | hireDate  | UTC | 
 address | String | 
 clientId | Integer  | LName  | String | 
@@ -114,8 +114,8 @@ active_only | Boolean | Include terminated employees in the response?
 ### Response
 
 
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
 hsJobId | Integer  | clientId  | Integer | 
 regWage | Real | 
 posEmpId | Integer  | hsEmpId  | Integer | 
@@ -172,8 +172,8 @@ active_only | Boolean | Include only active jobs in the response?
 #### Response
 
 
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
 jobName | String  | posId  | Integer | 
 clientId | Integer | 
 hsId | Integer  | defRate  | Real | 
@@ -232,12 +232,12 @@ active_only | Boolean | Include only active jobs in the response?
 #### Response
 
 
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
 empNum | Integer  | availability  | Array | 
 
-availability definition:Response | Primitive | Definition
------------- | ------------- | ------------
+availability definition:Response | Primitive | 
+------------ | ------------- | 
 parHoursMax | Integer | 
 parShiftsMax | Integer  | shiftId  | Integer | 
 shiftName | String | 
@@ -323,15 +323,15 @@ active_only | Boolean | Include only active jobs in the response?
 #### Response
 
 
-Response | Primitive | Definition
------------- | ------------- | ------------
+Response | Primitive | 
+------------ | ------------- | 
 lastUpdated | UTC  | accountCreated  | UTC | 
 permissionSetName | String  | 
 empNum | Integer  |assignedSchedules  | Array | 
 empHrId  | Integer | 
 
-assignedSchedules definition:Response | Primitive | Definition
------------- | ------------- | ------------
+assignedSchedules definition:Response | Primitive | 
+------------ | ------------- | 
 hsId | Integer | 
 name | String  | extId  | Integer | 
 
@@ -393,8 +393,8 @@ end_year=YYYY&
 
 
 
-Property | Primitive | Definition
------------- | ------------- | ------------
+Property | Primitive | 
+------------ | ------------- | 
 start_day | Integer  | start_month  | Integer | 
 start_year | Integer | 
 end_day | Integer | 
@@ -403,8 +403,8 @@ end_year | Integer |
 
 Array of Employee objects
 
-Property | Primitive | Definition
------------- | ------------- | ------------
+Property | Primitive | 
+------------ | ------------- | 
 zipCode | Integer  | hireDate  | UTC | 
 address | String | 
 clientId | Integer  | LName  | String | 
@@ -509,8 +509,8 @@ end_year=YYYY"&
 ````
 
 
-Property | Primitive | Definition
------------- | ------------- | ------------
+Property | Primitive | 
+------------ | ------------- | 
 start_day | Integer  | start_month  | Integer | 
 start_year | Integer | 
 end_day | Integer | 
@@ -520,8 +520,8 @@ employee | Array |
 
 Employee Job definition
 
-Property | Primitive | Definition
------------- | ------------- | ------------
+Property | Primitive | 
+------------ | ------------- | 
 hsJobId | Integer  | clientId  | Integer | 
 regWage | Real | 
 posEmpId | Integer | 
