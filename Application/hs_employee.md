@@ -377,7 +377,7 @@ curl -X GET -H "Content-Type:application/json" -u U:P
 
 **Method Name:** setEmpJobs
 
-This method takes in a concept ID, store ID and an array ofEmployee objects. The array of employees will beparsed on the server side to employees who need to be inserted orupdated in HotSchedules. 
+This method takes in a concept ID, store ID and an array ofEmployee objects. The array of employees and jobs will beinserted or updated in HotSchedules. 
 
 ### Request
 
@@ -390,7 +390,7 @@ start_year=YYY&
 end_day=DD&
 end_month=MM&
 end_year=YYYY"& 
-[{employee_object}, {employee_object}, {employee_object}...]
+[{employee_job}, {employee_job}, {employee_job}...]
 ````
 
 
@@ -403,7 +403,7 @@ end_month | Integer |
 end_year | Integer | 
 employee | Array | 
 
-Employee object definition
+Employee Job definition
 
 Property | Primitive | Definition
 ------------ | ------------- | ------------
@@ -416,7 +416,7 @@ ovtWage | Real |
 posJobId | Integer | 
 primary | Boolean | 
 
-**Example Employee object**
+**Example Employee Job**
 
 ````
 [
@@ -455,19 +455,118 @@ end_day=5&end_month=5&end_year=2016"
     "primary": false
   }
 ]"````
-## setEmps
-This method takes in a concept ID, store ID and an array ofWSEmployee objects. Using the authentication from the usernametoken and the conecpt and store IDs, the server will resolve whichHotSchedules client this sync is for. The array of employees will beparsed on the server side to employees who need to be inserted orupdated in the HS database. This method returns a WSReturnobject.
+## Add employees to a Store
+
+**Method Name:** setEmpsThis method takes in a concept ID, store ID and an array ofEmployee objects. The array of employees will beinserted or updated in HotSchedules. 
+
+
+### Request
 
 
 ````
-https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/setEmps?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016" -d "[{json_object_1}, {json_object_2}, {json_object_3}...]
+https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
+/1/1/setEmps?
+start_day=DD&
+start_month=MM&
+start_year=YYYY&
+end_day=DD&
+end_month=MM&
+end_year=YYYY&
+[{employee}]
 ````
 
 
 
+Property | Primitive | Definition
+------------ | ------------- | ------------
+start_day | Integer  | start_month  | Integer | 
+start_year | Integer | 
+end_day | Integer | 
+end_month | Integer | 
+end_year | Integer | 
+
+Array of Employee objects
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+zipCode | Integer  | hireDate  | UTC | 
+address | String | 
+clientId | Integer  | LName  | String | 
+address2 | String | 
+city | String  | mobile  | String | 
+NName | String | 
+altId | Integer  | FName  | String | 
+empNum | Integer | 
+phone | String  | hsId  | Integer | 
+dob | UTC | 
+state | String  | storeNum  | Integer | 
+email | String | 
+status | Integer | 
+
+**Example Employee object**
+
 ````
-curl -X PUT -H "Content-Type:application/json" -u <username>:<password> "https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/setEmps?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016" -d "[{json_object_1}, {json_object_2}, {json_object_3}...]"
+  {
+    "zipCode": "",
+    "hireDate": "2016-08-24T10:02:38.770-05:00",
+    "address": "",
+    "clientId": 14935377,
+    "LName": "Perkins",
+    "address2": "",
+    "city": "",
+    "mobile": "",
+    "NName": "",
+    "altId": -1,
+    "FName": "Norbert",
+    "empNum": -1,
+    "phone": "6502222222",
+    "hsId": 1656878857,
+    "dob": "1974-12-31T00:00:00-06:00",
+    "state": "",
+    "storeNum": 2,
+    "email": "norbert.perkins@tiffles.com",
+    "status": 1
+  }
 ````
+
+
+#### cURL Request 
+
+
+
+
+````
+curl -X PUT -H "Content-Type:application/json" 
+-u <username>:<password> 
+"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
+/1/1/setEmpJobs?
+start_day=30&
+start_month=4&
+start_year=2016&
+end_day=5&
+end_month=5&
+end_year=2016" 
+-d "[  {
+    "zipCode": "",
+    "hireDate": "2016-08-24T10:02:38.770-05:00",
+    "address": "",
+    "clientId": 14935377,
+    "LName": "Perkins",
+    "address2": "",
+    "city": "",
+    "mobile": "",
+    "NName": "",
+    "altId": -1,
+    "FName": "Norbert",
+    "empNum": -1,
+    "phone": "6502222222",
+    "hsId": 1656878857,
+    "dob": "1974-12-31T00:00:00-06:00",
+    "state": "",
+    "storeNum": 2,
+    "email": "norbert.perkins@tiffles.com",
+    "status": 1
+  }]"````
 
 
 
