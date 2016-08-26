@@ -1,4 +1,4 @@
-# Schedules and Shifts[Get schedules](https://github.com/hotschedules/workshops/blob/master/Application/hs_schedule.md#get-schedules)
+# Schedules and Shifts[Get schedules](https://github.com/hotschedules/workshops/blob/master/Application/hs_schedule.md#get-schedules)     
 [Get shifts](https://github.com/hotschedules/workshops/blob/master/Application/hs_schedule.md#get-shifts)
 
 ## Get Schedules
