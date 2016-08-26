@@ -4,11 +4,12 @@
 
 
 [Get all employees for a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employees-for-a-store)  
-[Get all employee jobs for a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employee-jobs-for-a-store)
-[Get all jobs defined at a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-jobs-defined-for-a-store)
-[Get employee availability](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-employee-availability)
-[Get all employees assigned to a schedule](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employees-assigned-to-a-schedule)
-[Assign jobs to individual employees](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#assign-jobs-to-individual-employees)
+[Get all employee jobs for a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employee-jobs-for-a-store)  
+[Get all jobs defined at a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-jobs-defined-for-a-store)  
+[Get employee availability](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-employee-availability)  
+[Get all employees assigned to a schedule](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employees-assigned-to-a-schedule)  
+[Assign jobs to individual employees](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#assign-jobs-to-individual-employees)  
+
 
 
 
