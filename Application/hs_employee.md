@@ -377,13 +377,20 @@ curl -X GET -H "Content-Type:application/json" -u U:P
 
 **Method Name:** setEmpJobs
 
-This method takes in a concept ID, store ID and an array ofWSEmployee objects. Using the authentication from the usernametoken and the conecpt and store IDs, the server will resolve whichHotSchedules client this sync is for. The array of employees will beparsed on the server side to employees who need to be inserted orupdated in the HS database. This method returns a WSReturnobject.
+This method takes in a concept ID, store ID and an array ofEmployee objects. The array of employees will beparsed on the server side to employees who need to be inserted orupdated in HotSchedules. 
 
 ### Request
 
 
 ````
-/concept/store/setEmpJobs?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016" -d "[{json_object_1}, {json_object_2}, {json_object_3}...]
+/concept/store/setEmpJobs?
+start_day=DD&
+start_month=MM&
+start_year=YYY&
+end_day=DD&
+end_month=MM&
+end_year=YYYY"& 
+[{employee_object}, {employee_object}, {employee_object}...]
 ````
 
 
@@ -394,8 +401,9 @@ start_year | Integer |
 end_day | Integer | 
 end_month | Integer | 
 end_year | Integer | 
+employee | Array | 
 
-Array of Employee objects
+Employee object definition
 
 Property | Primitive | Definition
 ------------ | ------------- | ------------
@@ -408,7 +416,7 @@ ovtWage | Real |
 posJobId | Integer | 
 primary | Boolean | 
 
-**Example Response**
+**Example Employee object**
 
 ````
 [
@@ -426,26 +434,28 @@ primary | Boolean |
 ]
 ````
 
-
-#### Response
-
-
-Response | Primitive | Definition
------------- | ------------- | ------------
- |   |  |   | 
-
-
-
-**Example Response**
-
 #### cURL Request 
 
 
-
-
 ````
-curl -X PUT -H "Content-Type:application/json" -u <username>:<password> "https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/setEmpJobs?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016" -d "[{json_object_1}, {json_object_2}, {json_object_3}...]"````
-## setEmps
+curl -X PUT -H "Content-Type:application/json" -u <username>:<password> 
+"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
+/1/1/setEmpJobs?start_day=30&start_month=4&start_year=2016&
+end_day=5&end_month=5&end_year=2016" 
+-d "[
+  {
+    "hsJobId": 8965542,
+    "clientId": 14935377,
+    "regWage": 8.8,
+    "posEmpId": 4001,
+    "hsEmpId": 4177257,
+    "storeNum": 2,
+    "ovtWage": 13.200001,
+    "posJobId": 18,
+    "primary": false
+  }
+]"````
+## setEmps
 This method takes in a concept ID, store ID and an array ofWSEmployee objects. Using the authentication from the usernametoken and the conecpt and store IDs, the server will resolve whichHotSchedules client this sync is for. The array of employees will beparsed on the server side to employees who need to be inserted orupdated in the HS database. This method returns a WSReturnobject.
 
 
