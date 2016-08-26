@@ -370,92 +370,7 @@ curl -X GET -H "Content-Type:application/json" -u U:P
 ````
 
 
-
-
-
-## Assign jobs to individual employees
-
-**Method Name:** setEmpJobs
-
-This method takes in a concept ID, store ID and an array ofEmployee objects. The array of employees and jobs will beinserted or updated in HotSchedules. 
-
-### Request
-
-
-````
-/concept/store/setEmpJobs?
-start_day=DD&
-start_month=MM&
-start_year=YYY&
-end_day=DD&
-end_month=MM&
-end_year=YYYY"& 
-[{employee_job}, {employee_job}, {employee_job}...]
-````
-
-
-Property | Primitive | Definition
------------- | ------------- | ------------
-start_day | Integer  | start_month  | Integer | 
-start_year | Integer | 
-end_day | Integer | 
-end_month | Integer | 
-end_year | Integer | 
-employee | Array | 
-
-Employee Job definition
-
-Property | Primitive | Definition
------------- | ------------- | ------------
-hsJobId | Integer  | clientId  | Integer | 
-regWage | Real | 
-posEmpId | Integer | 
-hsEmpId | Integer | 
-storeNum | Integer | 
-ovtWage | Real | 
-posJobId | Integer | 
-primary | Boolean | 
-
-**Example Employee Job**
-
-````
-[
-  {
-    "hsJobId": 8965542,
-    "clientId": 14935377,
-    "regWage": 8.8,
-    "posEmpId": 4001,
-    "hsEmpId": 4177257,
-    "storeNum": 2,
-    "ovtWage": 13.200001,
-    "posJobId": 18,
-    "primary": false
-  }
-]
-````
-
-#### cURL Request 
-
-
-````
-curl -X PUT -H "Content-Type:application/json" -u <username>:<password> 
-"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
-/1/1/setEmpJobs?start_day=30&start_month=4&start_year=2016&
-end_day=5&end_month=5&end_year=2016" 
--d "[
-  {
-    "hsJobId": 8965542,
-    "clientId": 14935377,
-    "regWage": 8.8,
-    "posEmpId": 4001,
-    "hsEmpId": 4177257,
-    "storeNum": 2,
-    "ovtWage": 13.200001,
-    "posJobId": 18,
-    "primary": false
-  }
-]"````
-## Add employees to a Store
+## Add employees to a Store
 
 **Method Name:** setEmpsThis method takes in a concept ID, store ID and an array ofEmployee objects. The array of employees will beinserted or updated in HotSchedules. 
 
@@ -569,6 +484,92 @@ end_year=2016"
   }]"````
 
 
+
+
+
+## Assign jobs to employees in a store
+
+**Method Name:** setEmpJobs
+
+This method takes in a concept ID, store ID and an array ofEmployee objects. The array of employees and jobs will beinserted or updated in HotSchedules. 
+
+### Request
+
+
+````
+/concept/store/setEmpJobs?
+start_day=DD&
+start_month=MM&
+start_year=YYY&
+end_day=DD&
+end_month=MM&
+end_year=YYYY"& 
+[{employee_job}, {employee_job}, {employee_job}...]
+````
+
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+start_day | Integer  | start_month  | Integer | 
+start_year | Integer | 
+end_day | Integer | 
+end_month | Integer | 
+end_year | Integer | 
+employee | Array | 
+
+Employee Job definition
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+hsJobId | Integer  | clientId  | Integer | 
+regWage | Real | 
+posEmpId | Integer | 
+hsEmpId | Integer | 
+storeNum | Integer | 
+ovtWage | Real | 
+posJobId | Integer | 
+primary | Boolean | 
+
+**Example Employee Job**
+
+````
+[
+  {
+    "hsJobId": 8965542,
+    "clientId": 14935377,
+    "regWage": 8.8,
+    "posEmpId": 4001,
+    "hsEmpId": 4177257,
+    "storeNum": 2,
+    "ovtWage": 13.200001,
+    "posJobId": 18,
+    "primary": false
+  }
+]
+````
+
+#### cURL Request 
+
+
+````
+curl -X PUT -H "Content-Type:application/json" -u <username>:<password> 
+"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
+/1/1/setEmpJobs?start_day=30&start_month=4&start_year=2016&
+end_day=5&end_month=5&end_year=2016" 
+-d "[
+  {
+    "hsJobId": 8965542,
+    "clientId": 14935377,
+    "regWage": 8.8,
+    "posEmpId": 4001,
+    "hsEmpId": 4177257,
+    "storeNum": 2,
+    "ovtWage": 13.200001,
+    "posJobId": 18,
+    "primary": false
+  }
+]"````
+
 
 
 
