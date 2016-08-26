@@ -8,7 +8,8 @@
 [Get all jobs defined at a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-jobs-defined-for-a-store)  
 [Get employee availability](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-employee-availability)  
 [Get all employees assigned to a schedule](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#get-all-employees-assigned-to-a-schedule)  
-[Assign jobs to individual employees](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#assign-jobs-to-individual-employees)  
+[Add employees to a store](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#add-employees-to-a-store)  
+[Assign jobs to employees](https://github.com/hotschedules/workshops/blob/master/Application/hs_employee.md#assign-jobs-to-employees-in-a-store)  
 
 
 
