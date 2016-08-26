@@ -142,17 +142,54 @@ curl -X GET -H "Content-Type:application/json" -u U:P
 ```
 
 
+## Get all jobs defined for a Store
+
+**Method Name:** getStoreJobs
+
+This method takes in a concept ID, store ID, a flag to return only active jobs and returns an array of Employee objects.
+
+### Request
+
+
+````
+/concept/store/getStoreJobs?active_only=BOOLEAN
+````
+
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+concept | Integer  | The identifier for the location's concept.store  | Integer | Identifier for the store
+active_only | Boolean | Include only active jobs in the response?
+
+
+#### Response
+
+
+Response | Primitive | Definition
+------------ | ------------- | ------------
+jobName | String  | posId  | Integer | 
+clientId | Integer | 
+hsId | Integer  | defRate  | Real | 
+storeNum | Integer | 
+
+
+**Example Response**
+
+````
+[
+  {
+    "jobName": "Bartender",
+    "posId": 18,
+    "clientId": 14935377,
+    "hsId": 786323127,
+    "defRate": 8.7,
+    "storeNum": 2
+  }
+]
+````#### cURL Request 
 
 
 
-
-
-
-## getStoreJobs
-
-This method takes in a concept ID and a store ID, and returns anarray of all jobs currently defined in HotSchedules for the givenconcept/store.
-
-concept/store/
 
 ```
 curl -X GET -H "Content-Type:application/json" -u U:P
@@ -162,9 +199,243 @@ curl -X GET -H "Content-Type:application/json" -u U:P
 
 
 
-## setEmpJobs
 
-This method takes in a concept ID, store ID, and an array ofWSEmpJob objects to assign jobs to individual employees. Thismethod returns a WSReturn object.
+
+
+## Get Employee availability
+
+**Method Name:** getEmpAvailability
+
+This method takes in a concept ID and a store ID and returns anarray of wsEmpAvailability objects. It is meant to get a list of allavailability for that store.
+
+### Request
+
+
+````
+/concept/store/getEmpAvailability?active_only=BOOLEAN
+````
+
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+concept | Integer  | The identifier for the location's concept.store  | Integer | Identifier for the store
+active_only | Boolean | Include only active jobs in the response?
+
+
+#### Response
+
+
+Response | Primitive | Definition
+------------ | ------------- | ------------
+empNum | Integer  | availability  | Array | 
+
+availability definition:Response | Primitive | Definition
+------------ | ------------- | ------------
+parHoursMax | Integer | 
+parShiftsMax | Integer  | shiftId  | Integer | 
+shiftName | String | 
+parHoursMin | Integer  | parShiftsMin  | Integer | 
+dayName | String | 
+partialBeforeAfter | String  | statusName  | String | 
+dayNum | Integer |
+partialTime  | String | 
+statusNum | Integer |
+
+**Example Response**
+
+````
+[
+  {
+    "empNum": -1,
+    "availabilities": [
+      {
+        "parHoursMax": -1,
+        "parShiftsMax": -1,
+        "shiftId": 781691596,
+        "shiftName": "AM",
+        "parHoursMin": -1,
+        "parShiftsMin": -1,
+        "dayName": "Saturday",
+        "partialBeforeAfter": "",
+        "statusName": "Not Available",
+        "dayNum": 7,
+        "partialTime": "",
+        "statusNum": 3
+      },
+      {
+        "parHoursMax": -1,
+        "parShiftsMax": -1,
+        "shiftId": 781691610,
+        "shiftName": "PM",
+        "parHoursMin": -1,
+        "parShiftsMin": -1,
+        "dayName": "Saturday",
+        "partialBeforeAfter": "",
+        "statusName": "Not Available",
+        "dayNum": 7,
+        "partialTime": "",
+        "statusNum": 3
+      }
+    ],
+    "empHrId": -1
+  },
+]
+````#### cURL Request 
+
+
+
+```
+curl -X GET -H "Content-Type:application/json" -u U:P
+ "https://api.bodhi.space/namespace/controllers/vertx/
+ hotschedules/1/1/getEmpAvailability?active_only=true"
+```
+```
+
+
+
+
+## Get all Employee's assigned to a schedule
+
+**Method Name:** getEmpInfo
+
+This method returns a list of all employees assigned to a schedule for a store. Takes in a concept ID and a store ID and returns an array of people assigned to a schedule.
+
+### Request
+
+
+````
+/concept/store/getEmpInfo?active_only=BOOLEAN
+````
+
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+concept | Integer  | The identifier for the location's concept.store  | Integer | Identifier for the store
+active_only | Boolean | Include only active jobs in the response?
+
+
+#### Response
+
+
+Response | Primitive | Definition
+------------ | ------------- | ------------
+lastUpdated | UTC  | accountCreated  | UTC | 
+permissionSetName | String  | 
+empNum | Integer  |assignedSchedules  | Array | 
+empHrId  | Integer | 
+
+assignedSchedules definition:Response | Primitive | Definition
+------------ | ------------- | ------------
+hsId | Integer | 
+name | String  | extId  | Integer | 
+
+
+**Example Response**
+
+````
+[
+ {
+    "lastUpdated": "2015-07-10T17:39:52.937-05:00",
+    "accountCreated": "2012-12-28T13:38:41.677-06:00",
+    "permissionSetName": "Employee",
+    "empNum": 4003,
+    "assignedSchedules": [
+      {
+        "hsId": 781691496,
+        "name": "Bartender",
+        "extId": 0
+      },
+      {
+        "hsId": 781691492,
+        "name": "Server",
+        "extId": 0
+      }
+    ],
+    "empHrId": -1
+  }
+]
+````#### cURL Request 
+
+
+
+```
+curl -X GET -H "Content-Type:application/json" -u U:P
+ "https://api.bodhi.space/namespace/controllers/vertx/
+ hotschedules/1/1/getEmpInfo?active_only=true"
+````
+
+
+
+
+
+## Assign jobs to individual employees
+
+**Method Name:** setEmpJobs
+
+This method takes in a concept ID, store ID and an array ofWSEmployee objects. Using the authentication from the usernametoken and the conecpt and store IDs, the server will resolve whichHotSchedules client this sync is for. The array of employees will beparsed on the server side to employees who need to be inserted orupdated in the HS database. This method returns a WSReturnobject.
+
+### Request
+
+
+````
+/concept/store/setEmpJobs?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016" -d "[{json_object_1}, {json_object_2}, {json_object_3}...]
+````
+
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+start_day | Integer  | start_month  | Integer | 
+start_year | Integer | 
+end_day | Integer | 
+end_month | Integer | 
+end_year | Integer | 
+
+Array of Employee objects
+
+Property | Primitive | Definition
+------------ | ------------- | ------------
+hsJobId | Integer  | clientId  | Integer | 
+regWage | Real | 
+posEmpId | Integer | 
+hsEmpId | Integer | 
+storeNum | Integer | 
+ovtWage | Real | 
+posJobId | Integer | 
+primary | Boolean | 
+
+**Example Response**
+
+````
+[
+  {
+    "hsJobId": 8965542,
+    "clientId": 14935377,
+    "regWage": 8.8,
+    "posEmpId": 4001,
+    "hsEmpId": 4177257,
+    "storeNum": 2,
+    "ovtWage": 13.200001,
+    "posJobId": 18,
+    "primary": false
+  }
+]
+````
+
+
+#### Response
+
+
+Response | Primitive | Definition
+------------ | ------------- | ------------
+ |   |  |   | 
+
+
+
+**Example Response**
+
+#### cURL Request 
+
+
 
 
 ````
@@ -186,29 +457,5 @@ curl -X PUT -H "Content-Type:application/json" -u <username>:<password> "https:/
 
 
 
-
-
-### getEmpInfo
-
-concept/store/getEmpInfo?active_only=true
-
-
-
-```
-curl -X GET -H "Content-Type:application/json" -u U:P 
-
-"https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/
-getEmpInfo?active_only=true"
-
-```
-
-### getEmpAvailability
-
-
-/concept/store/getEmpAvailability?active_only=true
-
-```
-curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getEmpAvailability?active_only=true"
-```
 
 
