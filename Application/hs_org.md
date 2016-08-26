@@ -28,7 +28,9 @@ TBC
 ### cURL Request
 
 ```
-curl -X GET -H "Content-Type:application/json" -u U:P "https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/getStores?group_id=0"
+curl -X GET -H "Content-Type:application/json" 
+-u username:pasword 
+"https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/getStores?group_id=0"
 ```
 
 

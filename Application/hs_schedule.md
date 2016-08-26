@@ -1,41 +1,154 @@
-# Schedules and Shifts
+# Schedules and Shifts
+
+## Get Schedules
+
+**Method Name:** getScheduleThis method returns returns an array of scheduled shifts for a specific date range
+
+This method takes in a concept ID, store ID, start and end dates.
 
 
-ScheduleService Web ServiceDescriptionThis service is intended for third parties to be able to grab scheduled shifts from HotSchedules and import theminto their POS/data warehouse/enterprise/etc. system.
-
-
-## getScheduleV3
-
-This method takes in a concept ID, store ID, start and end dates. Itreturns an array of WSScheduleItem objects, which represent onescheduled shift each, for import into the POS. This method returns alimited amount of data per shift: employee HS ID, employee POS ID,internal HS Job ID, POS Job ID, shift start date/time, shift enddate/time, work week start date/time, work week end date/time.
-This method takes in a concept ID, store ID, start and end dates. It returns an array of WSScheduleItemobjects, which represent one scheduled shift each, for import into the POS. This method returns a limitedamount of data per shift: employee HS ID, employee POS ID, internal HS Job ID, POS Job ID, shift startdate/time, shift end date/time, work week start date/time, work week end date/time.
-
-/concept/store/getSchedule?start_day=DD&start_month=MM&start_year=YYYY&end_day=DD&end_month=MM&end_year=YYYY
-
-
-
-
-
-
-```
-"https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/1/getSchedule?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016"
-```
-
-
+### Request
 
 ````
-curl -X GET -H "Content-Type:application/json" -u <username>:<password> "https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/getScheduleV3?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016"
+/concept/store/getSchedule?
+start_day=DD&
+start_month=MM&
+start_year=YYYY&
+end_day=DD&
+end_month=MM&
+end_year=YYYY
+````
+
+
+Property | Primitive | 
+------------ | ------------- | 
+concept ID | Integer  | 
+start_day | Integer  | start_month  | Integer | 
+start_year | Integer | 
+end_day | Integer | 
+end_month | Integer | 
+end_year | Integer | 
+
+
+
+### Response
+
+
+
+Response | Primitive | 
+------------ | ------------- | 
+outDate |  SimpleDate | 
+jobHsId |  Integer | 
+payRate |  Real | 
+inDate |  SimpleDate | 
+specialPay |  Integer | 
+empHSId |  Integer | 
+ovtMinutes |  Integer | 
+inTime |  SimpleTime | 
+jobPosId |  Integer | 
+weekStart |  SimpleDate | 
+ovtRate |  Integer | 
+regMinutes |  Integer | 
+locationId |  Integer | 
+weekEnd |  SimpleDate | 
+outTime |  SimpleTime | 
+scheduleId |  Integer | 
+empPosId |  Integer  | 
+
+
+
+SimpleDate | Primitive | 
+------------ | ------------- | 
+month |  Integer | 
+year |  Integer | 
+day |  Integer  | 
+
+
+SimpleTime | Primitive | 
+------------ | ------------- | 
+hours |  Integer | 
+seconds |  Integer | 
+militaryTime |  true | 
+minutes |  Integer  | 
+
+
+**Example Response**
+
+```
+  [{
+    "outDate": {
+      "month": 5,
+      "year": 2016,
+      "day": 3
+    },
+    "jobHsId": 786323136,
+    "payRate": 9.5,
+    "inDate": {
+      "month": 5,
+      "year": 2016,
+      "day": 2
+    },
+    "specialPay": 0,
+    "empHSId": 4177284,
+    "ovtMinutes": 0,
+    "inTime": {
+      "hours": 4,
+      "seconds": 0,
+      "militaryTime": true,
+      "minutes": 0
+    },
+    "jobPosId": 22,
+    "weekStart": {
+      "month": 5,
+      "year": 2016,
+      "day": 2
+    },
+    "ovtRate": 0,
+    "regMinutes": 1200,
+    "locationId": -1,
+    "weekEnd": {
+      "month": 5,
+      "year": 2016,
+      "day": 8
+    },
+    "outTime": {
+      "hours": 0,
+      "seconds": 0,
+      "militaryTime": true,
+      "minutes": 0
+    },
+    "scheduleId": 781691539,
+    "empPosId": 4027
+  },]
+```
+
+#### cURL Request 
 
 ````
+curl -X PUT -H "Content-Type:application/json" 
+-u <username>:<password> 
+"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/getScheduleV3?
+start_day=30&
+start_month=4&
+start_year=2016&
+end_day=5&
+end_month=5&
+end_year=2016"
+````
+
+
 
 
 ## getShiftsV3
 
 
 ````
-"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/getShiftsV3?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016"
+curl -X GET -H "Content-Type:application/json" -u admin__hsapi:admin__hsapi  "https://api.bodhi.space/hsapi/controllers/vertx/hotschedules/1/2/getShiftsV3?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016&is_house=true&is_scheduled=true&is_posted=true"
+
 ````
 
 
 ````
-curl -X GET -H "Content-Type:application/json" -u <username>:<password> "https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/getShiftsV3?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016"
+curl -X GET -H "Content-Type:application/json" -u admin__hsapi:admin__hsapi  "https://api.bodhi.space/hsapi/controllers/vertx/hotschedules/1/2/getShiftsV3?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016&is_house=true&is_scheduled=true&is_posted=true"
+
 ````
