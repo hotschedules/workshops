@@ -1,5 +1,8 @@
 # Store Service
 
+[Get stores](https://github.com/hotschedules/workshops/blob/master/Application/hs_org.md#get-stores)    
+[Get groups](https://github.com/hotschedules/workshops/blob/master/Application/hs_org.md#get-groups-for-a-concept)    
+
 
 
 ## Get Stores
@@ -22,7 +25,30 @@ concept ID | Integer  | group ID  | Integer |
 
 ### Response
 
-TBC
+An array of stores.
+
+Response | Primitive | 
+------------ | ------------- | 
+groupName |  String | 
+active |  Boolean | 
+groupExtId |  Integer | 
+storeName |  String | 
+storeNum |  Integer |  
+    
+
+**Example response**
+    
+
+````
+{
+    "groupName": "Tiffles",
+    "active": true,
+    "groupExtId": 1,
+    "storeName": "Tiffles San Francisco",
+    "storeNum": 2
+ }
+````
+
 
 
 ### cURL Request
