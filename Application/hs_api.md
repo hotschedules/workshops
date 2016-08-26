@@ -2,9 +2,9 @@
 
 The HotSchedules IoT Platform provides a new way to interact with HotSchedules Application Data through a REST API.  
 
-[Application Services](https://github.com/hotschedules/workshops/blob/master/Application/hs_api.md#application-services)
-[Specification](https://github.com/hotschedules/workshops/blob/master/Application/hs_api.md#specification)
-[Using Java](https://github.com/hotschedules/workshops/blob/master/Application/hs_using_java.md)
+[Application Services](https://github.com/hotschedules/workshops/blob/master/Application/hs_api.md#application-services)   
+[Specification](https://github.com/hotschedules/workshops/blob/master/Application/hs_api.md#specification)   
+[Using Java](https://github.com/hotschedules/workshops/blob/master/Application/hs_using_java.md)   
 
 Customers and developers have a choice when integrating with the HotSchedules Labor application. Data moves between the HotSchedules IoT platform and the HotSchedules application. You may choose to use the Platform API to get / post data but you must ensure the platform server side processes are running to ensure that data flows to the HotSchedules Application.
 
