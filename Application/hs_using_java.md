@@ -138,9 +138,13 @@ public class SimpleTest extends SimpleClient {
 	        String storeid = "2";
 	        String active = "true";
 	        
-	        // Call : client.get("controllers/vertx/hotschedules/1/2/getEmpInfo?active_only=true", null, result -> done[0] = result);
+	        // Call : client.get("controllers/vertx/hotschedules/1/2/getEmpInfo?active_only=true", 
+	        //                    null, result -> done[0] = result);
 	        
-	        String url = "controllers/vertx/hotschedules/" + concept + "/" + storeid + "/getEmpInfo?active_only=" + active;
+	        String url = "controllers/vertx/hotschedules/" + 
+	                      concept + "/" + 
+	                      storeid + 
+	                     "/getEmpInfo?active_only=" + active;
 	        
 	        client.get(url, null, result -> done[0] = result);
 	        wait.until(() -> done[0] != null);
@@ -186,8 +190,9 @@ public class SimpleTest extends SimpleClient {
 	        String emm = "3";
 	        String eyy = "2016";	        	        
 	        
-	        // client.get("controllers/vertx/hotschedules/1/2/getScheduleV3?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016",
-	        //               null, result -> done[0] = result);
+	        // client.get("controllers/vertx/hotschedules/1/2/getScheduleV3?
+	        //             start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016",
+	        //             null, result -> done[0] = result);
 	        
 	        String url = "controllers/vertx/hotschedules/" + concept + "/" + storeid + 
 	                     "/getScheduleV3?start_day=" + sdd + 
