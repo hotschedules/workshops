@@ -79,7 +79,7 @@ status | Integer |
 
 
 ```
-curl -X GET -H "Content-Type:application/json" -u U:P 
+curl -X GET -H "Content-Type:application/json" -u username:password 
 "https://api.bodhi.space/namespace/controllers/vertx/hotschedules
 /1/1/getStoreEmployees?active_only=true"
 ```
@@ -143,7 +143,7 @@ primary | Boolean |
 ````### cURL Request 
 
 ```
-curl -X GET -H "Content-Type:application/json" -u U:P 
+curl -X GET -H "Content-Type:application/json" -u username:password 
 "https://api.bodhi.space/namespace/controllers/vertx/hotschedules
 /1/1/getEmpJobs?active_only=true
 ```
@@ -199,9 +199,9 @@ storeNum | Integer |
 
 
 ```
-curl -X GET -H "Content-Type:application/json" -u U:P
- "https://api.bodhi.space/namespace/controllers/vertx/
- hotschedules/1/1/getStoreJobs?active_only=true"
+curl -X GET -H "Content-Type:application/json" -u username:password
+ "https://api.bodhi.space/namespace/controllers/vertx/hotschedules
+ /1/1/getStoreJobs?active_only=true"
 ```
 
 
@@ -292,9 +292,9 @@ statusNum | Integer |
 
 
 ````
-curl -X GET -H "Content-Type:application/json" -u U:P
- "https://api.bodhi.space/namespace/controllers/vertx/
- hotschedules/1/1/getEmpAvailability?active_only=true"
+curl -X GET -H "Content-Type:application/json" -u username:password
+ "https://api.bodhi.space/namespace/controllers/vertx/hotschedules
+ /1/1/getEmpAvailability?active_only=true"
 ````
 
 
@@ -365,7 +365,7 @@ name | String  | extId  | Integer |
 
 
 ```
-curl -X GET -H "Content-Type:application/json" -u U:P
+curl -X GET -H "Content-Type:application/json" -u username:password
  "https://api.bodhi.space/namespace/controllers/vertx/
  hotschedules/1/1/getEmpInfo?active_only=true"
 ````

@@ -14,7 +14,7 @@
 ### Request
 
 ````
-https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/getStores?group_id=0
+/concept/getStores?group_id=0
 ````
 
 
@@ -72,7 +72,7 @@ curl -X GET -H "Content-Type:application/json"
 ### Request
 
 ````
-https://api.bodhi.space/namespace/controllers/vertx/hotschedules/1/getGroups
+/concept/getGroups
 ````
 
 

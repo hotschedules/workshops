@@ -14,7 +14,6 @@ If this store is using HotSchedules' webbased timeclock for employee clockin, an
 
 
 ````
-https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
 /concept/store/getTimeCards?
 start_day=DD&
 start_month=MM&
@@ -42,9 +41,9 @@ Response | Primitive |
   jobName | String | 
   ovtTtl | Real | 
   ovtHrs | Integer | 
-  clockOut | UTC DATE TIME - YYYY-MM-DDTHH:MM:SS-00:00 | 
+  clockOut | UTC DateTime | 
   regWage | Real | 
-  clockIn | UTC DATE TIME - YYYY-MM-DDTHH:MM:SS-00:00 | 
+  clockIn | UTC DateTime | 
   ovtWage | Real | 
   breakMinutes | Real | 
   businessDate | compound type (see below)
@@ -58,11 +57,9 @@ Response | Primitive |
   empPosId | Integer | 
   regTtl | Real
   
-  
-  
- businessDate complex type
+
  
-Response | Primitive | 
+businessDate | Primitive | 
 ------------ | ------------- | 
     month | Integer | 
     year | Integer | 
@@ -127,7 +124,6 @@ Each timecard represents one employee punch record, including business date, reg
 
 
 ````
-https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
 /concept/store/setTimeCardsV3?
 start_day=DD&
 start_month=MM&
@@ -139,9 +135,9 @@ end_year=YYYY&
   "jobName": String,
   "ovtTtl": Real,
   "ovtHrs": Integer,
-  "clockOut": UTC DATE TIME - "YYYY-MM-DDTHH:MM:SS-00:00",
+  "clockOut": UTC DateTime,
   "regWage": Real,
-  "clockIn": UTC DATE TIME - "YYYY-MM-DDTHH:MM:SS-00:00",
+  "clockIn": UTC DateTime,
   "ovtWage": Real,
   "breakMinutes": Real,
   "jobId": Integer,
@@ -174,34 +170,31 @@ end_year | Integer |
 
 Timecard property | Primitive | 
 ------------ | ------------- | 
-  jobName | String | 
-  ovtTtl | Real | 
-  ovtHrs | Integer | 
-  clockOut | UTC DATE TIME - YYYY-MM-DDTHH:MM:SS-00:00 | 
-  regWage | Real | 
-  clockIn | UTC DATE TIME - YYYY-MM-DDTHH:MM:SS-00:00 | 
-  ovtWage | Real | 
-  breakMinutes | Real | 
-  businessDate | compound type (see below)
-  jobId | Integer | 
-  regHrs | Real | 
-  spcTtl | Real | 
-  hsId | Integer | 
-  spcHrs | Integer | 
-  ovtMins | Integer | 
-  storeNum | Integer | 
-  empPosId | Integer | 
-  regTtl | Real
+jobName | String | 
+ovtTtl | Real | 
+ovtHrs | Integer | 
+clockOut | UTC DateTime | 
+regWage | Real | 
+clockIn | UTC DateTime | 
+ovtWage | Real | 
+breakMinutes | Real | 
+businessDate | compound type (see below)
+jobId | Integer | 
+regHrs | Real | 
+spcTtl | Real | 
+hsId | Integer | 
+spcHrs | Integer | 
+ovtMins | Integer | 
+storeNum | Integer | 
+empPosId | Integer | 
+regTtl | Real
   
-  
-  
- businessDate complex type
  
-Response | Primitive | 
+businessDate | Primitive | 
 ------------ | ------------- | 
-    month | Integer | 
-    year | Integer | 
-    day | Integer
+month | Integer | 
+year | Integer | 
+day | Integer
       
 
 
@@ -210,7 +203,8 @@ Response | Primitive |
 ````
 curl -X PUT -H "Content-Type:application/json" 
 -u <username>:<password> 
-"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/setTimeCardsV3?
+"https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules
+/1/1/setTimeCardsV3?
 start_day=30&
 start_month=4&
 start_year=2016&
@@ -247,8 +241,8 @@ end_year=2016"
 
 #### To Document 
 
-getTimeCardsDeclaredTips - does not seem to be implemented 
-setTimeCardsDeclaredTips - document
+getTimeCardsDeclaredTips - does not seem to be implemented   
+setTimeCardsDeclaredTips - document  
 
 curl -X PUT -H "Content-Type:application/json" -u <username>:<password> "https://api.bodhi.space/<namespace>/controllers/vertx/hotschedules/1/1/setTimeCardsDeclaredTips?start_day=30&start_month=4&start_year=2016&end_day=5&end_month=5&end_year=2016" -d "[{json_object_1}, {json_object_2}, {json_object_3}...]"
 
